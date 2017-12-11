@@ -5,15 +5,17 @@
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <title>Keeping Up with The Keims</title>
         <link rel="stylesheet" href="css/w3-wedding-style.css">
+        <link href='https://fonts.googleapis.com/css?family=Felipa' rel='stylesheet'>
         <script src="javascript/wedding-website.js" type="text/javascript"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <style>
             body {
-                text-align: center;
+                text-align: center;                
             }
             
             #schedule-table td {
                 text-align: left;
+                vertical-align: middle;                
             }
             
             .hover-button {
@@ -31,18 +33,58 @@
                 background-color: black;
                 color: white;
             }
-            .schedule-table {
-                height: 10px;
-                width: 10px;
+            .schedule-table-image {
+                height: 50px;
+                width: 50px;
+                vertical-align: middle;
+                padding: 2.5%;
             }
             .story-image {
                 height: 235px;
                 width: 225px;
-                padding: 1%;
+                padding: 1%;                
             }
             table {
                 margin-left:auto; 
                 margin-right:auto
+            }
+            .wedding-intro {
+                font-family: 'Felipa';
+                font-weight: bold;                
+            }
+            .story-text {
+                text-align: left;
+            }
+            .wedding-party-images {
+                max-width: 125px;
+                max-height: 125px;
+            }
+            .wedding-party-text {
+                max-width: 475px;
+            }
+            .wrapper {
+                padding-bottom: 5px;
+                padding-top: 5px;
+                padding-left: 10px;
+                padding-right: 10px;                
+            }
+            .wrapper .text {          
+                display: none;                
+            }
+            .wrapper:hover .text {
+                display: block;
+                height: auto;
+                width: auto;
+                padding: 5%;                
+            }
+            ul {
+                position:relative;
+                display: inline-block;  
+                list-style: none;
+                width:100%;
+                text-align: center;
+                margin: auto;
+                padding: 0;
             }
         </style>            
     </head>
@@ -64,113 +106,201 @@
             </div>            
         </nav>	
 
-        <!-- Intro -->
-        <section class="w3-display-container w3-content w3-wide" id="home">
+        <!-- home -->
+        <section class="w3-display-container w3-content w3-wide" id="home" 
+                 style="max-width:1600px; min-width:800px;">
             <!-- background image -->
-            <img class="w3-image w3-opacity" style="background-size: cover" 
+            <img class="w3-image w3-opacity" alt="" 
+                 style="background-size: cover; background-size: 100% 100%; background-position: center" 
                  src="images/vineyard-ceremony.jpg">
             
-            <div class="w3-display-topmiddle w3-padding-large w3-opacity">
-                <h1> The Wedding of Tiffany Joy Thompson and John Zacharias Keim </h1>
-                <h2> May 25th, 2018 </h2>
-                <h3> Temecula, CA </h3>
+            <div class="w3-display-topmiddle w3-padding-64 w3-opacity">
+                <h1 class="wedding-intro"> The Wedding of:</h1>
+                <h1 class="wedding-intro">Tiffany Joy Thompson</h1> 
+                <h3 class="wedding-intro">And</h3>
+                <h1 class="wedding-intro">John Zacharias Keim</h1>
+                <h3 class="wedding-intro"> 5.25.2018 </h3>
+                <h3 class="wedding-intro"> Temecula, CA </h3>
             </div>            
         </section>
 
+        <hr>
+        
         <!-- Schedule -->
-        <section id="schedule">
-            <h1> Schedule of Events </h1>
-
-            <!-- Heart Image that turns red on hover -->
-
-            <h2> Wedding Day </h2>
-            <p> Villa De Amore </p>
-            <p> 40205 Calle Cabernet</p>
-            <p> Temecula, CA 92591 </p>
-            <a class="hover-button"
-               href="https://www.google.com/maps/place/Villa+De+Amore+Temecula+Wedding+Venue/@33.5386997,-117.0707479,17z">
-                Directions
-            </a>
-            <table id="schedule-table" style="margin-left: auto; margin-right: auto">
-                <tr>
-                    <td><img src="images/cermony.jpg" class="schedule-table"> 4:00 Ceremony </td>
-                    <td><img src="images/cermony.jpg" class="schedule-table"> 6:30 Dancing </td>
-                </tr>
-                <tr>
-                    <td><img src="images/cocktail.jpg" class="schedule-table"> 4:30 Cocktail Hour </td>
-                    <td><img src="images/cocktail.jpg" class="schedule-table"> 8:30 Desert </td>
-                </tr>
-                <tr>
-                    <td><img src="images/dinner.jpg" class="schedule-table"> 5:30 Dinner </td>
-                    <td><img src="images/uber.jpg" class="schedule-table"> 10:00 Head Home </td>
-                </tr>
-            </table>
+        <section id="schedule" class="w3-padding-64">
             
-            <h2>Rehearsal Dinner</h2>
-            <p>For those of you arriving a day early to the wedding, we invite you to join us for homemade BBQ.</p>
-            <h3>5:00 PM</h3>
-            <p>28839 Chatham Lane</p>
-            <p>Temecula, CA</p>
-            <a class="hover-button"
-               href="https://www.google.com/maps/place/28839+Chatham+Lane%2BTemecula%2C+CA+92591%2BUnited+States">
-                Directions
-            </a>
-        </section>	
+            <h1> Schedule of Events </h1>
+            
+            <div id="wedding-schdule" class="w3-padding-32">
+                <img src="images/heart.png" alt="" style="width:50px; height:50px">
+                <h2> Wedding Day </h2>
+                <p> Villa De Amore </p>
+                <p> 40205 Calle Cabernet</p>
+                <p> Temecula, CA 92591 </p>
+                <a class="hover-button"
+                   href="https://www.google.com/maps/place/Villa+De+Amore+Temecula+Wedding+Venue/@33.5386997,-117.0707479,17z">
+                    Directions
+                </a>
+                <table id="schedule-table" style="margin-left: auto; margin-right: auto">
+                    <tr>
+                        <td><img src="images/ceremony.png" alt="" class="schedule-table-image"> 4:00 Ceremony </td>
+                        <td><img src="images/toasts.png" alt="" class="schedule-table-image"> 6:00 Toasts </td>
+                    </tr>
+                    <tr>
+                        <td><img src="images/cocktail.png" alt="" class="schedule-table-image"> 4:30 Cocktail Hour </td>
+                        <td><img src="images/dancing.png" alt="" class="schedule-table-image"> 7:30 Dancing </td>
+                    </tr>
+                    <tr>
+                        <td><img src="images/dinner.png" alt="" class="schedule-table-image"> 5:30 Dinner </td>
+                        <td><img src="images/uber.png" alt="" class="schedule-table-image"> 10:00 Head Home </td>
+                    </tr>
+                </table>
+            </div>
+                
+            <div id="rehearsal-schedule" class="w3-padding-32">
+                <h2>Rehearsal Dinner</h2>
+                <p>For those of you arriving a day early to the wedding, we invite you to join us for BBQ and grilling at the Groomsmens' Airbnb.</p>
+                <h3>5:00 PM</h3>
+                <p>28839 Chatham Lane</p>
+                <p>Temecula, CA</p>
+                <a class="hover-button"
+                   href="https://www.google.com/maps/place/28839+Chatham+Lane%2BTemecula%2C+CA+92591%2BUnited+States">
+                    Directions
+                </a>
+            </div>
+        </section>
+        
+        <hr>
 
         <!-- Story -->
-        <section id="story">
-            <h1> Story </h1>
-            <img src="images/purple-suite.jpg" class="story-image" style="float: left">
-            <p>
-                Einstein once said, “Coincidence is God’s way of remaining anonymous.” After multiple near miss encounters in various states, Zack and Tiffany finally met in Tahoe California for a new hire orientation at a Boutique consulting firm. Although living across the country from one another, both ended up being placed on the same mid-west client for 9 months during one of the worst winters in recent history- 2013 Polar Vortex. Perhaps it was the 0 degree weather, but these two soon became inseparable. Before even dating, their coworkers coined the name “Zaffany” to describe their connection. This only became more evident by the surprising revelations of their ‘almost meets’ from Zack’s undergraduate degree in Washington where Tiffany was raised to both securing job offerings for different companies that share the same New York City building.
-            </p>
-            <img src="images/engagement.jpg" class="story-image" style="float: right">            
-            <p>
-                By the project’s end, Zack and Tiffany had fallen in love and Zack decided he wanted to quit the consulting firm and take his chances in Orange County. The consulting lifestyle grew tiresome for Tiffany and when asked by a recruiter to meet with Director at a Fortune 500 for a new gig, she jumped on the opportunity. As recruiters typically get paid through their placements and can’t afford candidates to apply through different means, she didn’t know the company she would be interviewing with until day of, which happened to be Ingram Micro, the company Zack was working for. Tiffany received the offer and ended up working at a second company with Zack. Although in different departments, their relationship grew stronger with living in the same city, knowing each other’s bosses, sharing stories, and ultimately having similar life experiences. Zack and Tiffany have now moved on to two different tech companies, but they share a deep history of knowing similar places and people, and enjoy traveling.
-            </p>            
-            <p>
-                “We welcome you to our wedding and to help us share in our soon to be honeymoon travels of Southern France and Italy with a French Country Elegance themed wedding in Southern California’s wine country. Cheers.”
-            </p>
+        <section id="story" class="w3-display-container w3-padding-small"
+                 style="margin-left: auto; margin-right: auto; max-width: 1600px">
+            <img src="images/story_background.jpg" alt="" 
+                 class="w3-image w3-opacity"
+                 style="background-size: cover; background-size: 100% 100%; background-position: center">
+            <div id="story-text" class="w3-padding-64 w3-display-middle" style="max-width:1100px">
+                <h1> Story </h1>
+                <img src="images/purple-suite.jpg" alt="" class="story-image" style="float: left">
+                <p class="story-text">
+                    Einstein once said, “Coincidence is God’s way of remaining anonymous.” After multiple near miss encounters in various states, Zack and Tiffany finally met in Tahoe California for a new hire orientation at a Boutique consulting firm. Although living across the country from one another, both ended up being placed on the same mid-west client for 9 months during one of the worst winters in recent history- 2013 Polar Vortex. Perhaps it was the 0 degree weather, but these two soon became inseparable. Before even dating, their coworkers coined the name “Zaffany” to describe their connection. This only became more evident by the surprising revelations of their ‘almost meets’ from Zack’s undergraduate degree in Washington where Tiffany was raised to both securing job offerings for different companies that share the same New York City building.
+                </p>
+                <img src="images/engagement.jpg" alt="" class="story-image" style="float: right">            
+                <p class="story-text">
+                    By the project’s end, Zack and Tiffany had fallen in love and Zack decided he wanted to quit the consulting firm and take his chances in Orange County. The consulting lifestyle grew tiresome for Tiffany and when asked by a recruiter to meet with Director at a Fortune 500 for a new gig, she jumped on the opportunity. As recruiters typically get paid through their placements and can’t afford candidates to apply through different means, she didn’t know the company she would be interviewing with until day of, which happened to be Ingram Micro, the company Zack was working for. Tiffany received the offer and ended up working at a second company with Zack. Although in different departments, their relationship grew stronger with living in the same city, knowing each other’s bosses, sharing stories, and ultimately having similar life experiences. Zack and Tiffany have now moved on to two different tech companies, but they share a deep history of knowing similar places and people, and enjoy traveling.
+                </p>            
+                <p class="story-text">
+                    “We welcome you to our wedding and to help us share in our soon to be honeymoon travels of Southern France and Italy with a French Country Elegance themed wedding in Southern California’s wine country. Cheers.”
+                </p>
+            </div>
         </section>
 
+        <hr>
+        
         <!-- Wedding Party -->
-        <section id="wedding_party">
+        <section id="wedding_party" class="w3-padding-64">
             <h1> The Wedding Party </h1>
-            <table>
+            <div>
+            <!-- TODO: Use two unordered lists in table, instead of table for all-->
+            <table>                
                 <tr>
-                    <th>Bridesmaids</th>
-                    <th>Groomsmen</th>
-                </tr>
-                <tr>
-                    <td>Sierra Gaboriault</td>
-                    <td>Christopher Keim</td>
-                </tr>
-                <tr>
-                    <td>Kimberly Van Der Beek</td>
-                    <td>Nicholas Keim</td>
-                </tr>
-                <tr>
-                    <td>Amanda Cagney</td>
-                    <td>Kyle Benson</td>
-                </tr>
-                <tr>
-                    <td>Theresa Nguyen</td>
-                    <td>Christopher Shaw</td>
-                </tr>
-                <tr>
-                    <td>Andrea Cagney</td>
-                    <td>Shai Sewell</td>
-                </tr>
+                    <td style="vertical-align: top">
+                        <ul style="list-style: none;">
+                            <li style="font-weight: bold">Bridesmaids</li>
+                            <li class="wrapper">
+                                Sierra Gaboriault
+                                <div class="text">
+                                    <img src="images/sierra.png" alt="" class="wedding-party-images">
+                                    <p class="wedding-party-text">Sierra is Tiffany’s sister and middle child of the 3 siblings. Although Kim and Tiffany try their best to convince Sierra to join them in sunny Southern California, they have lost her to the great outdoors of the NorthWest.  Sierra’s joins us with her loving family  which you may catch a glimpse of as ushers (sons: Preston & Mason) and the cutest brunette flower girl (daughter: Emy).</p>
+                                </div>
+                            </li>
+                            <li class="wrapper">
+                                Kimberly Van Der Beek
+                                <div class="text">
+                                    <img src="images/kim.png" alt="" class="wedding-party-images">
+                                    <p class="wedding-party-text">Kim is Tiffany’s sister and the oldest of the 3 siblings. Tiffany is grateful to have one of her siblings live less than 6 miles away and welcomes the Van Der Beek clan to the festivities. Representatives include the officiant, James (Kim’s hubs), Ringbearer Joshua (Her son), and flower girls Olivia and Annabelle (sampling of her beautiful daughters).</p>
+                                </div>
+                            </li>
+                            <li class="wrapper" >
+                                Amanda Cagney
+                                <div class="text">
+                                    <img src="images/amanda.png" alt="" class="wedding-party-images">
+                                    <p class="wedding-party-text">Amanda and Tiffany were roommates for 2 years in Newport Beach. They were united against a common shared roommate enemy. Amanda is now a Digital Media Supervisor in Santa Monica, living less than 2 miles from Tiffany's new digs</p>
+                                </div>
+                            </li>
+                            <li class="wrapper">
+                                Theresa Nguyen
+                                <div class="text">
+                                    <img src="images/theresa.png" alt="" class="wedding-party-images">
+                                    <p class="wedding-party-text">Tiffany and Theresa met on a girls’ roadtrip to Vegas with mutual friends from UCLA- 7 years ago. Thereafter, trips to NY, Sydney, and multiple Orange County/ Los Angeles nights have kept their friendship alive and well. Cheers to Dr. Nguyen who will soon be starting her medical residency.</p>
+                                </div>
+                            </li>
+                            <li class="wrapper">
+                                Andrea Cagney
+                                <div class="text">
+                                    <img src="images/andrea.png" alt="" class="wedding-party-images">
+                                    <p class="wedding-party-text">Andrea met Tiffany after coming home periodically for holiday visits to see her twin sister, Amanda. After relocating to Orange County, Andrea was keen on saving Tiffany from jumping into the routine of suburbia, having a special knack for finding new adventures with her friends. Andrea is such a force of positivity and one of Southern California best event organizer’s.</p>
+                                </div>
+                            </li>
+                        </ul>    
+                    </td >
+                    <td style="vertical-align: top">
+                        <ul style="list-style: none;">
+                            <li style="font-weight: bold">Groomsmen</li>
+                            <li class="wrapper">
+                                Christopher Keim
+                                <div class="text">
+                                    <img src="images/chriskeim.png" alt="" class="wedding-party-images">
+                                    <p class="wedding-party-text">Christopher is Zack's younger brother. He is a professional white water rafting guide, rock climber, snowboarder, and true outdoorsman, who has probably spent more nights sleeping under the stars then in a bed.</p>
+                                </div>
+                            </li>
+                            <li class="wrapper">
+                                Nicholas Keim
+                                <div class="text">
+                                    <img src="images/nick.png" alt="" class="wedding-party-images">
+                                    <p class="wedding-party-text">Nick is Zack's youngest brother. He is Junior at the University of Colorado, Boulder majoring in economics. Nick enjoys the outdoors as well, but not nearly as much as he enjoys his Danish bicycle.</p>
+                                </div>
+                            </li>
+                            <li class="wrapper">
+                                Kyle Benson
+                                <div class="text">
+                                    <img src="images/kyle.png" alt="" class="wedding-party-images">
+                                    <p class="wedding-party-text">Kyle and Zack both attend the University of Puget Sound, where they were both on the soccer team and roommates. Kyle lives in Seattle, and is founder of a relationship coaching company.</p>
+                                </div>
+                            </li>
+                            <li class="wrapper">
+                                Christopher Shaw
+                                <div class="text">
+                                    <img src="images/shaw.png" alt="" class="wedding-party-images">
+                                    <p class="wedding-party-text">Dr. Christopher Robin Shaw and Zack met at the University of Puget Sound, and was also on the soccer team and a roommate. Chris is currently an emergency medical resident at the University of Cincinnati.</p>
+                                </div>
+                            </li>
+                            <li class="wrapper">
+                                Shai Sewell
+                                <div class="text">
+                                    <img src="images/shai.png" alt="" class="wedding-party-images">
+                                    <p class="wedding-party-text">Soon to be Dr. Shai and Zack also met at the University of Puget Sound, played soccer, and lived with Zack. Shai is finishing up is Doctor of Physical Therapy at the University of Miami.</p>
+                                </div>
+                            </li>
+                        </ul>                        
+                    </td>                        
+                </tr>                
             </table>
-            <img src="images/flower.png">
+            <img src="images/flower.png" alt="" style="padding: 0; height: 300px; width: 400px;">
+            </div>
         </section>
 
+        <hr>
+        
         <!-- Accommodations and Travel -->
-        <section id="accommodations">
+        <section id="accommodations" class="w3-display-container">
+            <img src="images/south-coast-winery-resort.jpg" class="w3-image w3-opacity" alt=""
+                 style="background-size: cover; background-size: 100% 100%; background-position: center">
+            <div id="accommodations-text" style="max-width: 1300px" class="w3-display-middle w3-padding-64">
             <h1>Accommodations and Travel</h1>
             <p>
                 If you plan on staying the night, or even the week, there are a lot of affordable hotel and Airbnb options in Temecula. We recommend staying as close to the venue as possible.
-                
+            </p>
+            <p>
                 For those traveling from out of state, we recommend flying into either San Diego or Ontario International Airport. Both are about 1 hour's drive from Villa de Amore.
             </p>
 
@@ -190,27 +320,32 @@
                 class="hover-button">
                    Springhill Suites
             </a>
+            </div>
         </section>
+        
+        <hr>
 
         <!-- RSVP -->
         <section id="rsvp">
             <h1> RSVP </h1>
-            <div id="rsvp-intro">
-                <form id="rsvp-intro-form">
-                    <table id="rsvp-intro-table">
-                        <tr>
-                            <td>Party Name:</td>
-                            <td><input name="partyName" type="text"></td>
-                        </tr>
-                        <tr>
-                            <td>Number of Guests in Party</td>
-                            <td><input name="partyNumber" type="text" 
-                                       oninput="partyDetails('rsvp-guest-details')"></td>
-                        </tr>
-                    </table>
-                </form>                
+            <div id="rsvp-main">
+                <div id="rsvp-intro">
+                    <form id="rsvp-intro-form">
+                        <table id="rsvp-intro-table">
+                            <tr>
+                                <td>Party Name:</td>
+                                <td><input name="partyName" type="text"></td>
+                            </tr>
+                            <tr>
+                                <td>Number of Guests in Party</td>
+                                <td><input name="partyNumber" type="text" 
+                                           oninput="partyDetails('rsvp-guest-details')"></td>
+                            </tr>
+                        </table>
+                    </form>                
+                </div>
+                <div id="rsvp-guest-details"></div>
             </div>
-            <div id="rsvp-guest-details"></div>
         </section>
 
         <!-- Registry -->

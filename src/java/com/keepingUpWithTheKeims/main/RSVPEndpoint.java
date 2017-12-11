@@ -60,11 +60,12 @@ public class RSVPEndpoint {
     @Path("/post_rsvp")
     @Consumes(MediaType.APPLICATION_JSON) 
     @Produces(MediaType.TEXT_PLAIN)
-    public String postJsonTest(RequestObject requestObject){
-        String partyName = requestObject.getPartyName();
-        int partyNumber = requestObject.getPartyNumber();
+    public ResponseObject postJsonTest(RequestObject requestObject){                
+        String thankYou = "Thank You "+requestObject.getPartyName();
+        ResponseObject response = new ResponseObject();
+        response.setResponse(thankYou);
         
-        return "Party Name="+partyName+"Party Number="+partyNumber;
+        return response;
     }
     
 }

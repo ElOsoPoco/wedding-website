@@ -17,9 +17,7 @@ function sendRSVPRequest() {
       view[viewArr[i].name] = viewArr[i].value;
     }
     view["guests"] = guests;
-    console.log(view);
-    
-    view = "Hello";
+    console.log(view);    
 
     // call back to service with post containing JSON data and on
     // return process results back into page          
@@ -33,23 +31,19 @@ function sendRSVPRequest() {
         // JSON data fields for output back to the original HTML page
         success: function(data) {
             // this sets the html content of the html object
-            // with id of reponseArea.
-            console.log("Event Success!");
-            console.log(data);
-            var response = "<b>Thank You!</b>";            
-            $("#rsvp").html(response);
+            // with id of reponseArea.            
+            $("#rsvp-main").html(data);
         },
-        error: function(data) {
-            console.log("Event Error!"); 
-            console.log(data);
-            $("#rsvp").html("<b>An error has occurred!</b>");
+        error: function(data) {            
+            $("#rsvp-main").html("<b>An error has occurred!</b><br \> \n\
+                             <img src='images/frowny-face.jpg'>");
         }
     });
 };
 
 function partyDetails(locationId){
     rsvpGuestDetails = document.getElementById(locationId);
-    rsvpGuestDetails.innerHTML = "";        
+    rsvpGuestDetails.innerHTML = "";
  
     var partyNumber = parseInt(document.forms["rsvp-intro-form"]["partyNumber"].value);  
 
@@ -78,8 +72,7 @@ function partyDetails(locationId){
 }
 
 function addPartyDetail(tableName, label, inputType, inputName, i){
-    
-    
+        
     row = rsvpGuestDetailsTable.insertRow(-1);
 
     cell = row.insertCell(-1);

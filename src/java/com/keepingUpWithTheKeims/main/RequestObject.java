@@ -5,7 +5,7 @@
  */
 package com.keepingUpWithTheKeims.main;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class RequestObject {
     private String partyName;
     private int partyNumber;
-    //private ArrayList<Guest> guests;
+    private List<Guest> guests;
     
     public RequestObject(){
         
@@ -46,16 +46,14 @@ public class RequestObject {
      */
     public void setPartyNumber(int partyNumber) {
         this.partyNumber = partyNumber;
-    }
+    }   
 
-    /*
-
-    public ArrayList<Guest> getGuests() {
+    public List<Guest> getGuests() {
         return guests;
     }
 
-    public void setGuests(ArrayList<Guest> guests) {
+    public void setGuests(List<Guest> guests) {
         this.guests = guests;
     }
-    */
+    
 }
