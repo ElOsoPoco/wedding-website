@@ -16,7 +16,7 @@
             #schedule-table td {
                 text-align: left;
                 vertical-align: middle;                
-            }
+            }            
             
             .hover-button {
                 -webkit-transition-duration: 0.4s; /* Safari */
@@ -28,11 +28,42 @@
                 display: inline-block;
                 text-decoration:none;
             }
-
+            
             .hover-button:hover {
                 background-color: black;
                 color: white;
             }
+            
+            .accommodation-button {
+                -webkit-transition-duration: 0.4s; /* Safari */
+                transition-duration: 0.4s;                
+                padding: 16px 32px;
+                text-align: center;
+                margin: 4px 2px;
+                display: inline-block;
+                text-decoration:none;
+                height: 50px;
+                width: 150px;
+            }
+
+            .accommodation-button:hover {
+                font-weight: bolder;
+                color: white;
+            }
+            
+            .accommodations-table th {
+                border-bottom: 5px solid whitesmoke;
+                border-top: 2.5px solid whitesmoke;
+                border-left: 2.5px solid whitesmoke;
+                border-right: 2.5px solid whitesmoke;                
+            }
+            
+            .accommodations-table td {
+                border-left: 2.5px solid whitesmoke;
+                border-right: 2.5px solid whitesmoke;                
+                vertical-align: top;                
+            }
+            
             .schedule-table-image {
                 height: 50px;
                 width: 50px;
@@ -173,12 +204,13 @@
         <hr>
 
         <!-- Story -->
-        <section id="story" class="w3-display-container w3-padding-small"
-                 style="margin-left: auto; margin-right: auto; max-width: 1600px">
-            <img src="images/story_background.jpg" alt="" 
+        <section id="story" class="w3-display-container"
+                 style="background-image: url(images/story_background.jpg); 
+                    background-origin:padding-box;">
+            <!--<img src="images/story_background.jpg" alt="" 
                  class="w3-image w3-opacity"
-                 style="background-size: cover; background-size: 100% 100%; background-position: center">
-            <div id="story-text" class="w3-padding-64 w3-display-middle" style="max-width:1100px">
+                 style="background-size: cover; background-size: 100% 100%; background-position: center">-->
+            <div id="story-text" class="w3-padding-64" style="max-width:800px; margin-left: auto; margin-right: auto">
                 <h1> Story </h1>
                 <img src="images/purple-suite.jpg" alt="" class="story-image" style="float: left">
                 <p class="story-text">
@@ -292,35 +324,118 @@
         <hr>
         
         <!-- Accommodations and Travel -->
-        <section id="accommodations" class="w3-display-container">
-            <img src="images/south-coast-winery-resort.jpg" class="w3-image w3-opacity" alt=""
-                 style="background-size: cover; background-size: 100% 100%; background-position: center">
-            <div id="accommodations-text" style="max-width: 1300px" class="w3-display-middle w3-padding-64">
-            <h1>Accommodations and Travel</h1>
-            <p>
-                If you plan on staying the night, or even the week, there are a lot of affordable hotel and Airbnb options in Temecula. We recommend staying as close to the venue as possible.
-            </p>
-            <p>
-                For those traveling from out of state, we recommend flying into either San Diego or Ontario International Airport. Both are about 1 hour's drive from Villa de Amore.
-            </p>
+        <section id="accommodations" class="w3-display-container" 
+                 style="background: rgba(0, 0, 0, 0.9); 
+                 background-image: url(images/south-coast-winery-resort.jpg); 
+                 background-origin:padding-box;
+                 background-repeat: no-repeat">
+            <!--<img src="images/south-coast-winery-resort.jpg" class="w3-image" alt=""
+                 style="background-size: cover; background-size: 100% 100%; 
+                        background-position: center;">-->
+            <div class="w3-padding-64 accommodations-table" 
+                 style="color: whitesmoke;">
+                <h1>Accommodations</h1>
+                <p>
+                    We recommend using <a href="www.booking.com">booking.com</a> to find the best possible rates. Outside of booking.com, we recommend the following hotels:
+                </p>
+                <table style="vertical-align: top; border-collapse: separate; 
+                       border-spacing: 50px 0; width: 800px;">
+                    <tr>
+                        <th>Just Get Me A Place</th>
+                        <th>Family/Group Bookings</th>
+                        <th>For the Gambler</th>
+                        <th>Romantic Getaway</th>
+                    </tr>
+                    <tr>
+                        <td><b>$-$$</b></td>
+                        <td><b>$$</b></td>
+                        <td><b>$$</b></td>
+                        <td><b>$$$</b></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="http://www.hilton.com/search/es/us/ca/temecula/"
+                                class="accommodation-button">
+                                   Embassy Suites
+                            </a>
+                        </td>
+                        <td rowspan="3" style="border-bottom: 2.5px solid whitesmoke;">
+                            <a href="www.airbnb.com"
+                                class="accommodation-button">
+                                   Airbnb
+                            </a>
+                            <p>Good for multi-room booking</p>
+                        </td>
+                        <td rowspan="3" style="border-bottom: 2.5px solid whitesmoke;">
+                            <a href="http://pechanga.com/"
+                                class="accommodation-button">
+                                   Pechanga Casino
+                            </a>
+                            <p>Large resort and casino, with shows and other entertainment.</p>
+                        </td>
+                        <td>
+                            <a href="https://www.southcoastwinery.com/"
+                                class="accommodation-button">
+                                   South Coast
+                            </a>                            
+                        </td>                        
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="http://www.hilton.com/search/es/us/ca/temecula/"
+                                class="accommodation-button">
+                                   Hampton Inn
+                            </a>
+                        </td>
+                        <td>
+                            <a href="https://www.pontevineyardinn.com/"
+                                class="accommodation-button">
+                                   Ponte
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border-bottom: 2.5px solid whitesmoke;">
+                            <a href="www.lq.com/en/findandbook/hotel-details.temecula.html"
+                                class="accommodation-button">
+                                   La Quinta
+                            </a>
+                        </td>
+                        <td style="border-bottom: 2.5px solid whitesmoke;">
+                            <a href="https://www.carterestatewinery.com/"
+                                class="accommodation-button">
+                                   Carter Estate
+                            </a>
+                        </td>
+                    </tr>
+                </table>
 
-            <a href="https://www.reservations.com/hotel/ponte-vineyard-inn"
-                class="hover-button">
-                   Ponte
-            </a>
-            <a href="https://www.southcoastwinery.com/"
-                class="hover-button">
-                   South Coast Winery
-            </a>
-            <a href="https://www.airbnb.com/"
-                class="hover-button">
-                   Airbnb
-            </a>
-            <a href="http://www.marriott.com/hotels/travel/ontst-springhill-suites-temecula-valley-wine-country/"
-                class="hover-button">
-                   Springhill Suites
-            </a>
-            </div>
+                <h1>For the Flyers</h1>
+                <p>Depending on you weekend plans you may wish to fly into one of the following airports</p>
+                <table style="vertical-align: top; border-collapse: separate; 
+                       border-spacing: 50px 0;  width: 800px;">
+                    <tr>
+                        <th>San Diego (SAN)</th>
+                        <th>Ontario (ONT)</th>
+                        <th>Los Angeles (LAX)</th>
+                    </tr>
+                    <tr>
+                        <td>Roughly 68 miles from venue (1 hour 15 minutes drive)</td>
+                        <td>Roughly 61 miles from venue (1 hour drive)</td>
+                        <td>Roughly 99 miles from venue (1 hour 55 minutes drive without traffic)</td>
+                    </tr>
+                    <tr>
+                        <td>Multiple Car Rental Services</td>
+                        <td>Multiple Car Rental Services</td>
+                        <td>Multiple Car Rental Services</td>
+                    </tr>
+                    <tr>
+                        <td style="border-bottom: 2.5px solid whitesmoke;">No Car? Transit Van Shuttle or Temecula Air Shuttle</td>
+                        <td style="border-bottom: 2.5px solid whitesmoke;">No Car? Go Airport Shuttle</td>
+                        <td style="border-bottom: 2.5px solid whitesmoke;">No Car? Get a Car! It's likely cheaper</td>
+                    </tr>
+                </table>                
+           </div>
         </section>
         
         <hr>
@@ -334,12 +449,17 @@
                         <table id="rsvp-intro-table">
                             <tr>
                                 <td>Party Name:</td>
-                                <td><input name="partyName" type="text"></td>
+                                <td><input name="partyName" type="text" maxlength="64" required></td>
+                            </tr>
+                            <tr>
+                                <td>email:</td>
+                                <td><input name="email" type="text" maxlength="64" required></td>
                             </tr>
                             <tr>
                                 <td>Number of Guests in Party</td>
                                 <td><input name="partyNumber" type="text" 
-                                           oninput="partyDetails('rsvp-guest-details')"></td>
+                                           oninput="partyDetails('rsvp-guest-details')" maxlength="1"
+                                           required></td>
                             </tr>
                         </table>
                     </form>                

@@ -14,6 +14,7 @@ import java.util.List;
 public class RequestObject {
     private String partyName;
     private int partyNumber;
+    private String email;
     private List<Guest> guests;
     
     public RequestObject(){
@@ -54,6 +55,20 @@ public class RequestObject {
 
     public void setGuests(List<Guest> guests) {
         this.guests = guests;
+    }
+
+    /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
     }
     
 }
