@@ -117,6 +117,16 @@
                 margin: auto;
                 padding: 0;
             }
+            .faq-table {
+                text-align: left;
+                vertical-align: top;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .faq-table td {
+                width: 500px;
+                padding: 10px;
+            }
         </style>            
     </head>
     <body>
@@ -141,7 +151,8 @@
         <section class="w3-display-container" id="home" 
                  style="background-image: url(images/vineyard-ceremony.jpg); 
                         background-origin:padding-box;
-                        background-size: cover;">
+                        background-size: cover;
+                        background-position: center; ">
             
             <div class="w3-padding-64 w3-opacity">
                 <h1 class="wedding-intro"> The Wedding of:</h1>
@@ -478,36 +489,70 @@
                 <div id="rsvp-submit"></div>
             </div>
         </section>
+        
+        <hr>
 
         <!-- Registry -->
-        <section id="registry">
+        <section class="w3-padding-64" id="registry" style="max-width:800px; margin-left: auto; margin-right: auto;">
+            <h1> Registry </h1>
             <p>
-                We appreciate you coming from far and wide – city friends, we know that traveling the L.I.E feels like crossing the country – to be with us this summer. Your attendance is as good a gift as any. Who really needs a Vitamix, anyhow? (However, in the event you find it necessary, they are available at Williams Sonoma).
-
-                If you feel inclined to add a little shimmer to our otherwise dull china collection, you can browse our `wants’ over here at Bloomingdale’s. To better dress our guest bedroom, possibly in anticipation of your next long weekend in the city, visit West Elm. 
+                We appreciate you coming from far and wide to be with us this Memorial Day Weekend. Your attendance is as good a gift as any. Who really needs a Vitamix, anyhow? (However, in the event you find it necessary, the exact one the bride wants can be found and even purchased and shipped directly to the bride and groom on our Zola Registry).
+            </p>
+            <p>
+                If you feel inclined to add a little shimmer to our otherwise dull china collection, you can browse our `wants’ below on Zola. Our if you want to add some extra adventure to our Honeymoon, you can also contribute to that. 
             </p>
             
             <a href="https://www.zola.com/registry/tiffanyandzack525">
                 <img src="images/zola.jpg" class="hover-button" style="height: 252px; width: 455px">
             </a>
         </section>
+        
+        <hr>
 
         <!-- FAQ -->
-        <section id="faq">
+        <section id="faq" class="w3-padding-64" style="background-color: black; color: whitesmoke">
+            <h1>FAQ</h1>
             <table class="faq-table">
                 <tr>
-                    <th>What should I wear?</th>                    
+                    <td>
+                        <p style="font-weight: bold">What should I wear?</p>
+                        <p>Cocktail attire- meaning a suite or sports coat for the guys and a cocktail or long dress for the ladies. During the day, the weather may be 75 degrees+; at night this can go to less than 60 degrees, so dress appropriately.</p>
+                    </td>
+                    <td rowspan="2">
+                        <p style="font-weight: bold">Will there be enough food and booze?</p>
+                        <p>
+                            <i>Cocktail hour</i> - serving beef sliders, crab cakes, and a large crudité platter complemented with assorted meats and cheeses. Signature cocktails, champagne, craft beer, wine, and small selection of hard liquors will be available for all until we leave. Please have fun, but drink responsibly!
+                        </p>
+                        <p>
+                            <i>Dinner</i> - serving your choice of a spicy heirloom tomato salad or house salad and the entrée, your choice of Steak or Salmon (vegetarian options will also be available)
+                        </p>
+                        <p>
+                            <i>Dessert</i> - Macaroons or Cake
+                        </p>
+                        <p>
+                            If this isn’t enough food for you, street tacos will also be served in the evening.  
+                        </p>
+                    </td>
                 </tr>
                 <tr>
-                    <td>The attire is cocktail attire. This means for men you should wear a suite (but tie is optional). For women, a cocktail address is appropriate</td>
+                    <td>
+                        <p style="font-weight: bold">What is the parking situation?</p>
+                        <p>There is a large parking area at Villa De Amore. Overnight parking is allowed with an early next day exit (before 10a), but if you're planning to drink, we would recommend an Uber or Lyft to/ from your hotel. DO NOT DRINK AND DRIVE!</p>
+                    </td>
                 </tr>
                 <tr>
-                    <th>What's the parking situation/<th>                    
-                </tr>
-                <tr>
-                    <td>There is ample parking at the venue, and guests can leave their car overnight. If you do leave your car overnight, you need to be out by noon the next day.</td>
-                </tr>
+                    <td>
+                        <p style="font-weight: bold">Can we bring kids?</p>
+                        <p>Of course! Just make sure they are included in your guest count on your RSVP complete with names and dietary restrictions. If you're looking for a date night, but are planning for a family weekend thereafter, you can also find a sitter in the area at Care.com.</p>
+                    </td>
+                    <td>
+                        <p style="font-weight: bold">What is there to do in Temecula?</p>
+                        <p>There are several wineries in the Temecula Valley, that offer wine tastings. We recommend Pointe, South Coast Winery, and Wilson Creek. Outside of wineries, you can play craps at Pechanga Casino, relax at a day spa or golfing, or if you're daring enough, Hot Air Balloon rides. Temecula is also only 1 hour drive from the beaches of San Diego, Disneyland, Knott's Berry Farm, Balboa park, or San Diego Zoo.</p>
+                    </td>
+                </tr>                
             </table>
+            <p style="font-size: small">Not made on the Knot. Designed by the Bride.</p>
+            <p style="font-size: small">Built with blood, sweat, and stuborness by the Groom.</p>
         </section>
     </body>
 </html>

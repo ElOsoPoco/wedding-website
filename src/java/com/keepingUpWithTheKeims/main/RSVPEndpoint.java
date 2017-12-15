@@ -74,5 +74,4 @@ public class RSVPEndpoint {
         }
         return response;
     }
-    
 }
