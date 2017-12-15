@@ -17,7 +17,8 @@ function sendRSVPRequest() {
       view[viewArr[i].name] = viewArr[i].value;
     }
     view["guests"] = guests;
-    console.log(view);    
+    console.log(view);
+    console.log(JSON.stringify(view));
 
     // call back to service with post containing JSON data and on
     // return process results back into page          
@@ -31,18 +32,19 @@ function sendRSVPRequest() {
         // JSON data fields for output back to the original HTML page
         success: function(data) {
             // this sets the html content of the html object
-            // with id of reponseArea.            
-            $("#rsvp-main").html(data);
+            // with id of reponseArea.
+            console.log(data);
+            $("#rsvp-main").html(data.response);
         },
-        error: function(data) {            
+        error: function() {
             $("#rsvp-main").html("<b>An error has occurred!</b><br \> \n\
                              <img src='images/frowny-face.jpg'>");
         }
     });
 };
 
-function partyDetails(locationId){
-    rsvpGuestDetails = document.getElementById(locationId);
+function partyDetails(){
+    rsvpGuestDetails = document.getElementById('rsvp-guest-details');
     rsvpGuestDetails.innerHTML = "";
  
     var partyNumber = parseInt(document.forms["rsvp-intro-form"]["partyNumber"].value);  
@@ -54,26 +56,34 @@ function partyDetails(locationId){
         rsvpGuestDetailsTable = document.createElement("table");
         rsvpGuestDetailsTable.id = "rsvp-guest-details-table-"+i;
 
-        addPartyDetail(rsvpGuestDetailsTable, "Guest Name", "text", "guestName", i);
-        addPartyDetail(rsvpGuestDetailsTable, "Age", "text", "age", i);
+        addPartyDetail(rsvpGuestDetailsTable, "Guest Name: ", "text", "guestName");        
+        addRadioButton(rsvpGuestDetailsTable, "Entree: ", "entree", 
+            ["Steak: ", "Salmon: ", "Vegetarian: "]);            
+        addRadioButton(rsvpGuestDetailsTable, "Salad: ", "salad", 
+            ["Signature Heirloom (Spicy): ", "House: "]);
+        addRadioButton(rsvpGuestDetailsTable, "Over 21?: ", "over21", ["Yes", "No"]);
+        //addPartyDetail(rsvpGuestDetailsTable, "Age: ", "text", "age");
+        addTextArea(rsvpGuestDetailsTable, "Comments", 
+            "rsvp-guest-details-form", "comments");
         
         rsvpGuestDetailsForm.appendChild(rsvpGuestDetailsTable);
         rsvpGuestDetails.appendChild(rsvpGuestDetailsForm);
         
     }
+    sendButtonDiv = document.getElementById("rsvp-submit");
+    sendButtonDiv.innerHTML = "";
     
     sendButton = document.createElement("button");
-    sendButton.classList.add("hover-button");
-    sendButton.id = "rsvp-submit";    
+    sendButton.classList.add("hover-button");    
     sendButton.innerHTML = "Send!";
-    sendButton.onclick = sendRSVPRequest;
+    sendButton.onclick = sendRSVPRequest;    
     
-    rsvpGuestDetails.appendChild(sendButton);
+    sendButtonDiv.appendChild(sendButton);
 }
 
-function addPartyDetail(tableName, label, inputType, inputName, i){
+function addPartyDetail(tableName, label, inputType, inputName){
         
-    row = rsvpGuestDetailsTable.insertRow(-1);
+    row = tableName.insertRow(-1);
 
     cell = row.insertCell(-1);
     guestName = document.createElement("p");
@@ -87,10 +97,59 @@ function addPartyDetail(tableName, label, inputType, inputName, i){
     cell.appendChild(guestNameInput);
 }
 
+function addRadioButton(tableName, label, radioButtonGroupName, values){
+        
+    row = tableName.insertRow(-1);
+
+    cell = row.insertCell(-1);
+    guestName = document.createElement("p");
+    guestName.innerHTML = label;
+    cell.appendChild(guestName);
+    
+    cell = row.insertCell(-1);
+    blank = document.createElement("br");    
+    cell.appendChild(blank);
+
+    for(j=0; j<values.length; j++){        
+        console.log("j: "+j);
+        
+        row = tableName.insertRow(-1);
+        
+        cell = row.insertCell(-1);
+        blank = document.createElement("br");
+        cell.appendChild(blank);
+        
+        cell = row.insertCell(-1);
+        guestNameInput = document.createElement("input");
+        guestNameInput.type = "RADIO";
+        guestNameInput.name = radioButtonGroupName;
+        guestNameInput.value = values[j];
+        cell.innerHTML = values[j];
+        cell.appendChild(guestNameInput);
+    }
+}
+
+function addTextArea(table, label, form, id){
+    row = table.insertRow(-1);
+    
+    cell = row.insertCell(-1);
+    labelElement = document.createElement("p");
+    labelElement.innerHTML = label;
+    cell.append(labelElement);
+    
+    cell = row.insertCell(-1);
+    textArea = document.createElement("textarea");
+    textArea.form = form;
+    textArea.cols = 15;
+    textArea.rows = 5;    
+    textArea.name = id;
+    cell.appendChild(textArea);
+}
+
 function serializeRSVP(){
     var guests = [];
     $(".rsvp-guest-details-form").each(function(i) {
-        var viewArr = $(this).serializeArray();        
+        var viewArr = $(this).serializeArray();
         var view = {};
         // need to convert { name:"VarName", value:"ValName"} to {VarName:"ValName"}
         for (var i in viewArr) {
@@ -100,4 +159,38 @@ function serializeRSVP(){
     });
     
     return guests;
+}
+
+function isAttending(){
+  rsvpIntroTable = document.getElementById("rsvp-intro-table");
+  rsvpGuestDetails = document.getElementById("rsvp-guest-details");
+  sendButtonDiv = document.getElementById("rsvp-submit");
+  
+  document.getElementById("partyNumRow").innerHTML = "";
+  sendButtonDiv.innerHTML = "";
+  
+    if(document.getElementById("is-attending").checked){    
+      row = document.getElementById("partyNumRow");      
+
+      cell = row.insertCell(-1);
+      partyNumLabel = document.createElement("p");
+      partyNumLabel.innerHTML = "Number of Guests in Party: ";
+      cell.appendChild(partyNumLabel);
+
+      cell = row.insertCell(-1);
+      partyNum = document.createElement("input");
+      partyNum.type = "text";
+      partyNum.name = "partyNumber";
+      partyNum.addEventListener('input', partyDetails);
+      cell.appendChild(partyNum);
+
+
+    } else {    
+      sendButton = document.createElement("button");
+      sendButton.classList.add("hover-button");      
+      sendButton.innerHTML = "Send!";
+      sendButton.onclick = sendRSVPRequest;
+
+      sendButtonDiv.appendChild(sendButton);
+    }
 }

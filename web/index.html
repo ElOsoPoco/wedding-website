@@ -138,21 +138,20 @@
         </nav>	
 
         <!-- home -->
-        <section class="w3-display-container w3-content w3-wide" id="home" 
-                 style="max-width:1600px; min-width:800px;">
-            <!-- background image -->
-            <img class="w3-image w3-opacity" alt="" 
-                 style="background-size: cover; background-size: 100% 100%; background-position: center" 
-                 src="images/vineyard-ceremony.jpg">
+        <section class="w3-display-container" id="home" 
+                 style="background-image: url(images/vineyard-ceremony.jpg); 
+                        background-origin:padding-box;
+                        background-size: cover;">
             
-            <div class="w3-display-topmiddle w3-padding-64 w3-opacity">
+            <div class="w3-padding-64 w3-opacity">
                 <h1 class="wedding-intro"> The Wedding of:</h1>
                 <h1 class="wedding-intro">Tiffany Joy Thompson</h1> 
                 <h3 class="wedding-intro">And</h3>
                 <h1 class="wedding-intro">John Zacharias Keim</h1>
                 <h3 class="wedding-intro"> 5.25.2018 </h3>
                 <h3 class="wedding-intro"> Temecula, CA </h3>
-            </div>            
+            </div>
+            <div style="height: 60vh;"></div>
         </section>
 
         <hr>
@@ -206,10 +205,9 @@
         <!-- Story -->
         <section id="story" class="w3-display-container"
                  style="background-image: url(images/story_background.jpg); 
-                    background-origin:padding-box;">
-            <!--<img src="images/story_background.jpg" alt="" 
-                 class="w3-image w3-opacity"
-                 style="background-size: cover; background-size: 100% 100%; background-position: center">-->
+                    background-origin:padding-box;
+                    background-size: cover;">
+            
             <div id="story-text" class="w3-padding-64" style="max-width:800px; margin-left: auto; margin-right: auto">
                 <h1> Story </h1>
                 <img src="images/purple-suite.jpg" alt="" class="story-image" style="float: left">
@@ -231,8 +229,7 @@
         <!-- Wedding Party -->
         <section id="wedding_party" class="w3-padding-64">
             <h1> The Wedding Party </h1>
-            <div>
-            <!-- TODO: Use two unordered lists in table, instead of table for all-->
+            <div>            
             <table>                
                 <tr>
                     <td style="vertical-align: top">
@@ -328,10 +325,8 @@
                  style="background: rgba(0, 0, 0, 0.9); 
                  background-image: url(images/south-coast-winery-resort.jpg); 
                  background-origin:padding-box;
-                 background-repeat: no-repeat">
-            <!--<img src="images/south-coast-winery-resort.jpg" class="w3-image" alt=""
-                 style="background-size: cover; background-size: 100% 100%; 
-                        background-position: center;">-->
+                 background-repeat: no-repeat;
+                 background-size: cover;">
             <div class="w3-padding-64 accommodations-table" 
                  style="color: whitesmoke;">
                 <h1>Accommodations</h1>
@@ -441,7 +436,7 @@
         <hr>
 
         <!-- RSVP -->
-        <section id="rsvp">
+        <section id="rsvp" class="w3-padding-64">
             <h1> RSVP </h1>
             <div id="rsvp-main">
                 <div id="rsvp-intro">
@@ -456,15 +451,31 @@
                                 <td><input name="email" type="text" maxlength="64" required></td>
                             </tr>
                             <tr>
-                                <td>Number of Guests in Party</td>
+                                <td colspan="2">
+                                    Will you be attending our wedding? 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input id="is-attending" type="radio" 
+                                           name="attending" value="True"
+                                           onclick="isAttending()"> Will Attend</td>
+                                <td><input id="not-attending" type="radio" 
+                                           name="attending" value="False"
+                                           onclick="isAttending()"> Will Not Attend</td>
+                            </tr>
+                            <tr id="partyNumRow"></tr>
+                            <!--<tr>
+                                <td>Number of Guests in Party: </td>
                                 <td><input name="partyNumber" type="text" 
                                            oninput="partyDetails('rsvp-guest-details')" maxlength="1"
-                                           required></td>
-                            </tr>
+                                           required>
+                                </td>
+                            </tr>-->
                         </table>
                     </form>                
                 </div>
                 <div id="rsvp-guest-details"></div>
+                <div id="rsvp-submit"></div>
             </div>
         </section>
 

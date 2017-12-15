@@ -55,16 +55,23 @@ public class RSVPEndpoint {
     /**
      * POST method
      * @param requestObject         
+     * @return          
      */
     @POST
     @Path("/post_rsvp")
     @Consumes(MediaType.APPLICATION_JSON) 
-    @Produces(MediaType.TEXT_PLAIN)
-    public ResponseObject postJsonTest(RequestObject requestObject){                
-        String thankYou = "Thank You "+requestObject.getPartyName();
+    @Produces(MediaType.APPLICATION_JSON)
+    public ResponseObject postJsonTest(RequestObject requestObject){
         ResponseObject response = new ResponseObject();
-        response.setResponse(thankYou);
         
+        if (requestObject.isAttending()){
+            String thankYou = "Thank You "+requestObject.getPartyName()+"! We look forward to seeing you on the big day!";            
+            response.setResponse(thankYou);
+        } else {
+            String thankYou = "We are sorry that you won't be able to join us "+requestObject.getPartyName()+" "
+                    + "Hopefully, we can connect sometime before or after our wedding.";           
+            response.setResponse(thankYou);
+        }
         return response;
     }
     

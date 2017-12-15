@@ -15,6 +15,7 @@ public class RequestObject {
     private String partyName;
     private int partyNumber;
     private String email;
+    private boolean attending;
     private List<Guest> guests;
     
     public RequestObject(){
@@ -69,6 +70,20 @@ public class RequestObject {
      */
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    /**
+     * @return the attending
+     */
+    public boolean isAttending() {
+        return attending;
+    }
+
+    /**
+     * @param attending the attending to set
+     */
+    public void setAttending(boolean attending) {
+        this.attending = attending;
     }
     
 }
