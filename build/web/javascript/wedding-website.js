@@ -43,6 +43,7 @@ function sendRSVPRequest() {
     });
 };
 
+//TODO: Need to move HTML-esq elements to index.html
 function partyDetails(){
     rsvpGuestDetails = document.getElementById('rsvp-guest-details');
     rsvpGuestDetails.innerHTML = "";
@@ -58,10 +59,12 @@ function partyDetails(){
 
         addPartyDetail(rsvpGuestDetailsTable, "Guest Name: ", "text", "guestName");        
         addRadioButton(rsvpGuestDetailsTable, "Entree: ", "entree", 
-            ["Steak: ", "Salmon: ", "Vegetarian: "]);            
+            ["<img src='images/steak.png' alt='Steak: ' class='food'>Steak: ", 
+             "<img src='images/salmon.png' alt='Salmon: ' class='food'>Salmon: ", 
+             "<img src='images/vegetarian.png' alt='Vegetarian: ' class='food'>Vegetarian: "]);            
         addRadioButton(rsvpGuestDetailsTable, "Salad: ", "salad", 
             ["Signature Heirloom (Spicy): ", "House: "]);
-        addRadioButton(rsvpGuestDetailsTable, "Over 21?: ", "over21", ["Yes", "No"]);
+        addRadioButton(rsvpGuestDetailsTable, "Over 21?: ", "over21", ["Yes: ", "No: "]);
         //addPartyDetail(rsvpGuestDetailsTable, "Age: ", "text", "age");
         addTextArea(rsvpGuestDetailsTable, "Comments", 
             "rsvp-guest-details-form", "comments");

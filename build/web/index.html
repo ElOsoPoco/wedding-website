@@ -127,6 +127,10 @@
                 width: 500px;
                 padding: 10px;
             }
+            .food {
+                width: 25px;
+                height: 25px;
+            }
         </style>            
     </head>
     <body>
@@ -475,13 +479,6 @@
                                            onclick="isAttending()"> Will Not Attend</td>
                             </tr>
                             <tr id="partyNumRow"></tr>
-                            <!--<tr>
-                                <td>Number of Guests in Party: </td>
-                                <td><input name="partyNumber" type="text" 
-                                           oninput="partyDetails('rsvp-guest-details')" maxlength="1"
-                                           required>
-                                </td>
-                            </tr>-->
                         </table>
                     </form>                
                 </div>
@@ -510,7 +507,7 @@
         <hr>
 
         <!-- FAQ -->
-        <section id="faq" class="w3-padding-64" style="background-color: black; color: whitesmoke">
+        <section id="faq" class="w3-padding-64 w3-opacity" style="background-color: black; color: whitesmoke">
             <h1>FAQ</h1>
             <table class="faq-table">
                 <tr>
