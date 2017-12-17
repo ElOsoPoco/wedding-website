@@ -130,7 +130,7 @@
             .food {
                 width: 25px;
                 height: 25px;
-            }
+            }            
         </style>            
     </head>
     <body>
@@ -152,13 +152,13 @@
         </nav>	
 
         <!-- home -->
-        <section class="w3-display-container" id="home" 
+        <section class="w3-display-container " id="home" 
                  style="background-image: url(images/vineyard-ceremony.jpg); 
                         background-origin:padding-box;
                         background-size: cover;
-                        background-position: center; ">
+                        background-position: center;">
             
-            <div class="w3-padding-64">
+            <div class="w3-padding-64" style="font-weight: bolder">
                 <h1 class="wedding-intro"> The Wedding of:</h1>
                 <h1 class="wedding-intro">Tiffany Joy Thompson</h1> 
                 <h3 class="wedding-intro">And</h3>
@@ -176,9 +176,12 @@
             
             <h1> Schedule of Events </h1>
             
-            <div id="wedding-schdule" class="w3-padding-32">
-                <img src="images/heart.png" alt="" style="width:50px; height:50px">
+            <div id="wedding-schdule" class="w3-padding-32">                
+                <img src="images/heart.png" alt="" style="width:100px; height:100px"
+                     onmouseover="this.src='images/red-heart.png';" 
+                     onmouseout="this.src='images/heart.png';">
                 <h2> Wedding Day </h2>
+                <h4>Friday, May 25th, 2018</h4>
                 <p> Villa De Amore </p>
                 <p> 40205 Calle Cabernet</p>
                 <p> Temecula, CA 92591 </p>
@@ -205,6 +208,7 @@
             <div id="rehearsal-schedule" class="w3-padding-32">
                 <h2>Rehearsal Dinner</h2>
                 <p>For those of you arriving a day early to the wedding, we invite you to join us for BBQ and grilling at the Groomsmens' Airbnb.</p>
+                <h4>Thursday, May 24th, 2018</h4>
                 <h3>5:00 PM</h3>
                 <p>28839 Chatham Lane</p>
                 <p>Temecula, CA</p>
