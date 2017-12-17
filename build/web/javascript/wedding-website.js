@@ -54,22 +54,30 @@ function partyDetails(){
         rsvpGuestDetailsForm = document.createElement("form");
         rsvpGuestDetailsForm.id = "rsvp-guest-details-form-"+i;
         rsvpGuestDetailsForm.classList.add("rsvp-guest-details-form");
+        
+        guestNumberLabel = document.createElement("p");
+        guestNumberLabel.innerHTML = "Guest Number "+i;
+        guestNumberLabel.style.fontWeight = "bold";
+        rsvpGuestDetailsForm.appendChild(guestNumberLabel);
+        
         rsvpGuestDetailsTable = document.createElement("table");
         rsvpGuestDetailsTable.id = "rsvp-guest-details-table-"+i;
+        rsvpGuestDetailsTable.style.tableLayout = "fixed";
 
         addPartyDetail(rsvpGuestDetailsTable, "Guest Name: ", "text", "guestName");        
         addRadioButton(rsvpGuestDetailsTable, "Entree: ", "entree", 
-            ["<img src='images/steak.png' alt='Steak: ' class='food'> NY Strip Steak - gold potato puree, red wine and shallot compound butter, sauteed crimini mushroom and spinach ", 
-             "<img src='images/salmon.png' alt='Salmon: ' class='food'> Cedar Salmon - peas and carrots, roasted cauliflower wild rice, creme fraiche, dill ", 
-             "<img src='images/vegetarian.png' alt='Vegetarian: ' class='food'> Vegetarian - Chef's choice "],
+            ["<img src='images/steak.png' alt='' class='food'> NY Strip Steak - gold potato puree, red wine and shallot compound butter, sauteed crimini mushroom and spinach ", 
+             "<img src='images/salmon.png' alt='' class='food'> Cedar Salmon - peas and carrots, roasted cauliflower wild rice, creme fraiche, dill ", 
+             "<img src='images/vegetarian.png' alt='' class='food'> Vegetarian - Chef's choice "],
             ["Steak", "Salmon", "Vegetarian"]);            
         addRadioButton(rsvpGuestDetailsTable, "Salad: ", "salad", 
-            ["Signature Heirloom (Spicy): ", "House: "],
+            ["<img src='images/heirloom.png' alt='' class='food'> Signature Heirloom (Spicy) - heirloom tomato, lemon cucumber, chile-cornbread croutons, parmesean cheese, and preserved meyer lemon vinaigrette  "
+            , "<img src='images/house-salad.png' alt='' class='food'> House - Oragnic greens with a champagne vinaigrette, shaved parmesan, and a seasonal garnishment "],
             ["Heirloom", "House"]);
         addRadioButton(rsvpGuestDetailsTable, "Over 21?: ", "over21", ["Yes: ", "No: "],
             ["True", "False"]);
         //addPartyDetail(rsvpGuestDetailsTable, "Age: ", "text", "age");
-        addTextArea(rsvpGuestDetailsTable, "Comments", 
+        addTextArea(rsvpGuestDetailsTable, "Comments: ", 
             "rsvp-guest-details-form", "comments");
         
         rsvpGuestDetailsForm.appendChild(rsvpGuestDetailsTable);
@@ -92,14 +100,15 @@ function addPartyDetail(tableName, label, inputType, inputName){
     row = tableName.insertRow(-1);
 
     cell = row.insertCell(-1);
-    guestName = document.createElement("p");
+    guestName = document.createElement("p");    
     guestName.innerHTML = label;
+    guestName.style.textAlign = "left";
     cell.appendChild(guestName);
 
     cell = row.insertCell(-1);
     guestNameInput = document.createElement("input");
     guestNameInput.type = inputType;
-    guestNameInput.name = inputName;
+    guestNameInput.name = inputName;    
     cell.appendChild(guestNameInput);
 }
 
@@ -108,8 +117,9 @@ function addRadioButton(tableName, label, radioButtonGroupName, html, values){
     row = tableName.insertRow(-1);
 
     cell = row.insertCell(-1);
-    guestName = document.createElement("p");
+    guestName = document.createElement("p");   
     guestName.innerHTML = label;
+    cell.style.textAlign = "left";
     cell.appendChild(guestName);
     
     cell = row.insertCell(-1);
@@ -122,7 +132,9 @@ function addRadioButton(tableName, label, radioButtonGroupName, html, values){
         row = tableName.insertRow(-1);
         
         cell = row.insertCell(-1);
-        blank = document.createElement("br");
+        //blank = document.createElement("br");
+        cell.innerHTML = html[j];
+        cell.classList.add("rsvp-detail-label");
         cell.appendChild(blank);
         
         cell = row.insertCell(-1);
@@ -130,7 +142,7 @@ function addRadioButton(tableName, label, radioButtonGroupName, html, values){
         guestNameInput.type = "RADIO";
         guestNameInput.name = radioButtonGroupName;
         guestNameInput.value = values[j];
-        cell.innerHTML = html[j];
+        cell.classList.add("rsvp-radio-button");
         cell.appendChild(guestNameInput);
     }
 }
@@ -141,14 +153,16 @@ function addTextArea(table, label, form, id){
     cell = row.insertCell(-1);
     labelElement = document.createElement("p");
     labelElement.innerHTML = label;
+    cell.style.textAlign = "left";
     cell.append(labelElement);
     
     cell = row.insertCell(-1);
     textArea = document.createElement("textarea");
     textArea.form = form;
-    textArea.cols = 15;
+    textArea.cols = 25;
     textArea.rows = 5;    
     textArea.name = id;
+    cell.style.alignContent = "left";
     cell.appendChild(textArea);
 }
 
@@ -187,6 +201,8 @@ function isAttending(){
       partyNum = document.createElement("input");
       partyNum.type = "text";
       partyNum.name = "partyNumber";
+      partyNum.size = 1;
+      partyNum.maxlength = 1;
       partyNum.addEventListener('input', partyDetails);
       cell.appendChild(partyNum);
 

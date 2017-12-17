@@ -48,18 +48,8 @@
 
             .accommodation-button:hover {
                 font-weight: bolder;                
-            }
-            
-            .accommodations-table th {
-                /*border-bottom: 5px solid whitesmoke;
-                border-top: 2.5px solid whitesmoke;
-                border-left: 2.5px solid whitesmoke;
-                border-right: 2.5px solid whitesmoke;*/
-            }
-            
-            .accommodations-table td {
-                /*border-left: 2.5px solid whitesmoke;
-                border-right: 2.5px solid whitesmoke;*/
+            }                                   
+            .accommodations-table td {                
                 vertical-align: top;                
             }
             .accommodation-image {
@@ -168,6 +158,12 @@
                 height: auto;
                 text-align: left;
                 padding: 10px;
+            }
+            .rsvp-detail-label {
+                text-align: right;
+            }
+            .rsvp-radio-button {
+                text-align: left;
             }
         </style>            
     </head>
@@ -498,18 +494,18 @@
         <hr>
 
         <!-- RSVP -->
-        <section id="rsvp" class="w3-padding-64" style="background: rgb(107, 117, 136);color: whitesmoke">
+        <section id="rsvp" class="w3-padding-64" style="background: rgb(107, 117, 136);color: whitesmoke;">
             <h1> RSVP </h1>
             <div id="rsvp-main">
                 <div id="rsvp-intro">
                     <form id="rsvp-intro-form">
                         <table id="rsvp-intro-table">
                             <tr>
-                                <td>Party Name:</td>
+                                <td style="text-align: right">Party Name:</td>
                                 <td><input name="partyName" type="text" maxlength="64" required></td>
                             </tr>
                             <tr>
-                                <td>Email:</td>
+                                <td style="text-align: right">Email:</td>
                                 <td><input name="email" type="text" maxlength="64" required></td>
                             </tr>
                             <tr>
@@ -529,7 +525,7 @@
                         </table>
                     </form>                
                 </div>
-                <div id="rsvp-guest-details"></div>
+                <div id="rsvp-guest-details" style="max-width: 700px; margin-left: auto; margin-right: auto"></div>
                 <div id="rsvp-submit"></div>
             </div>            
         </section>
