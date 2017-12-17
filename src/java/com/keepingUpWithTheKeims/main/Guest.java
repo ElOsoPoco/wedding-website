@@ -15,7 +15,7 @@ public class Guest {
     private String entree;
     private String salad;
     private boolean over21;
-    private String comments;
+    private String comments;    
 
     public Guest(){ }
     

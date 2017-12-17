@@ -61,10 +61,13 @@ function partyDetails(){
         addRadioButton(rsvpGuestDetailsTable, "Entree: ", "entree", 
             ["<img src='images/steak.png' alt='Steak: ' class='food'>Steak: ", 
              "<img src='images/salmon.png' alt='Salmon: ' class='food'>Salmon: ", 
-             "<img src='images/vegetarian.png' alt='Vegetarian: ' class='food'>Vegetarian: "]);            
+             "<img src='images/vegetarian.png' alt='Vegetarian: ' class='food'>Vegetarian: "],
+            ["Steak", "Salmon", "Vegetaria"]);            
         addRadioButton(rsvpGuestDetailsTable, "Salad: ", "salad", 
-            ["Signature Heirloom (Spicy): ", "House: "]);
-        addRadioButton(rsvpGuestDetailsTable, "Over 21?: ", "over21", ["Yes: ", "No: "]);
+            ["Signature Heirloom (Spicy): ", "House: "],
+            ["Heirloom", "House"]);
+        addRadioButton(rsvpGuestDetailsTable, "Over 21?: ", "over21", ["Yes: ", "No: "],
+            ["True", "False"]);
         //addPartyDetail(rsvpGuestDetailsTable, "Age: ", "text", "age");
         addTextArea(rsvpGuestDetailsTable, "Comments", 
             "rsvp-guest-details-form", "comments");
@@ -100,7 +103,7 @@ function addPartyDetail(tableName, label, inputType, inputName){
     cell.appendChild(guestNameInput);
 }
 
-function addRadioButton(tableName, label, radioButtonGroupName, values){
+function addRadioButton(tableName, label, radioButtonGroupName, html, values){
         
     row = tableName.insertRow(-1);
 
@@ -127,7 +130,7 @@ function addRadioButton(tableName, label, radioButtonGroupName, values){
         guestNameInput.type = "RADIO";
         guestNameInput.name = radioButtonGroupName;
         guestNameInput.value = values[j];
-        cell.innerHTML = values[j];
+        cell.innerHTML = html[j];
         cell.appendChild(guestNameInput);
     }
 }
