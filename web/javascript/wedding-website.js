@@ -59,10 +59,10 @@ function partyDetails(){
 
         addPartyDetail(rsvpGuestDetailsTable, "Guest Name: ", "text", "guestName");        
         addRadioButton(rsvpGuestDetailsTable, "Entree: ", "entree", 
-            ["<img src='images/steak.png' alt='Steak: ' class='food'>Steak: ", 
-             "<img src='images/salmon.png' alt='Salmon: ' class='food'>Salmon: ", 
-             "<img src='images/vegetarian.png' alt='Vegetarian: ' class='food'>Vegetarian: "],
-            ["Steak", "Salmon", "Vegetaria"]);            
+            ["<img src='images/steak.png' alt='Steak: ' class='food'> NY Strip Steak - gold potato puree, red wine and shallot compound butter, sauteed crimini mushroom and spinach ", 
+             "<img src='images/salmon.png' alt='Salmon: ' class='food'> Cedar Salmon - peas and carrots, roasted cauliflower wild rice, creme fraiche, dill ", 
+             "<img src='images/vegetarian.png' alt='Vegetarian: ' class='food'> Vegetarian - Chef's choice "],
+            ["Steak", "Salmon", "Vegetarian"]);            
         addRadioButton(rsvpGuestDetailsTable, "Salad: ", "salad", 
             ["Signature Heirloom (Spicy): ", "House: "],
             ["Heirloom", "House"]);

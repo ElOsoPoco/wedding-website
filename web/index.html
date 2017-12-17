@@ -37,7 +37,7 @@
             .accommodation-button {
                 -webkit-transition-duration: 0.4s; /* Safari */
                 transition-duration: 0.4s;                
-                padding: 16px 32px;
+                
                 text-align: center;
                 margin: 4px 2px;
                 display: inline-block;
@@ -47,23 +47,33 @@
             }
 
             .accommodation-button:hover {
-                font-weight: bolder;
-                color: white;
+                font-weight: bolder;                
             }
             
             .accommodations-table th {
-                border-bottom: 5px solid whitesmoke;
+                /*border-bottom: 5px solid whitesmoke;
                 border-top: 2.5px solid whitesmoke;
                 border-left: 2.5px solid whitesmoke;
-                border-right: 2.5px solid whitesmoke;                
+                border-right: 2.5px solid whitesmoke;*/
             }
             
             .accommodations-table td {
-                border-left: 2.5px solid whitesmoke;
-                border-right: 2.5px solid whitesmoke;                
+                /*border-left: 2.5px solid whitesmoke;
+                border-right: 2.5px solid whitesmoke;*/
                 vertical-align: top;                
             }
-            
+            .accommodation-image {
+                display:block;
+                width:100%;
+                height:auto;
+                border-radius: 15px;
+                opacity: 0.65;
+            }
+            .accommodation-image:hover {
+                -webkit-transition-duration: 0.4s; /* Safari */
+                transition-duration: 0.4s;
+                opacity: 1;
+            }
             .schedule-table-image {
                 height: 50px;
                 width: 50px;
@@ -89,6 +99,7 @@
             .wedding-party-images {
                 max-width: 125px;
                 max-height: 125px;
+                border-radius: 100px;
             }
             .wedding-party-text {
                 max-width: 475px;
@@ -103,6 +114,8 @@
                 display: none;                
             }
             .wrapper:hover .text {
+                -webkit-transition-duration: 0.4s; /* Safari */
+                transition-duration: 0.4s;
                 display: block;
                 height: auto;
                 width: auto;
@@ -130,7 +143,32 @@
             .food {
                 width: 25px;
                 height: 25px;
-            }            
+            }
+            .travel .image {
+                display: block;
+                width:100%;
+                height:auto;                
+            }
+            .travel .text {
+                display: none;
+            }
+            .travel:hover .image {
+                -webkit-transition-duration: 0.4s; /* Safari */
+                transition-duration: 0.4s;
+                display: none;
+            }
+            .travel:hover .text {
+                -webkit-transition-duration: 0.4s; /* Safari */
+                transition-duration: 0.4s;
+                display: block;
+            }
+            .travel li {
+                display: block;
+                width: 100%;
+                height: auto;
+                text-align: left;
+                padding: 10px;
+            }
         </style>            
     </head>
     <body>
@@ -249,7 +287,7 @@
         <section id="wedding_party" class="w3-padding-64">
             <h1> The Wedding Party </h1>
             <div>            
-            <table>                
+            <table style="border-spacing:75px 0;">                
                 <tr>
                     <td style="vertical-align: top">
                         <ul style="list-style: none;">
@@ -340,20 +378,15 @@
         <hr>
         
         <!-- Accommodations and Travel -->
-        <section id="accommodations" class="w3-display-container" 
-                 style="background: rgba(0, 0, 0, 0.9); 
-                 background-image: url(images/south-coast-winery-resort.jpg); 
-                 background-origin:padding-box;
-                 background-repeat: no-repeat;
-                 background-size: cover;">
-            <div class="w3-padding-64 accommodations-table" 
-                 style="color: whitesmoke;">
+        <section id="accommodations" class="w3-display-container">
+            <!--  -->
+            <div class="w3-padding-64 accommodations-table">
                 <h1>Accommodations</h1>
                 <p>
                     We recommend using <a href="www.booking.com">booking.com</a> to find the best possible rates. Outside of booking.com, we recommend the following hotels:
                 </p>
                 <table style="vertical-align: top; border-collapse: separate; 
-                       border-spacing: 50px 0; width: 800px;">
+                       border-spacing: 40px 0; width: 1100px; table-layout: fixed">
                     <tr>
                         <th>Just Get Me A Place</th>
                         <th>Family/Group Bookings</th>
@@ -361,35 +394,41 @@
                         <th>Romantic Getaway</th>
                     </tr>
                     <tr>
-                        <td><b>$-$$</b></td>
-                        <td><b>$$</b></td>
-                        <td><b>$$</b></td>
-                        <td><b>$$$</b></td>
+                        <td style="font-size: 16pt;"><b>$-$$</b></td>
+                        <td style="font-size: 16pt;"><b>$$</b></td>
+                        <td style="font-size: 16pt;"><b>$$</b></td>
+                        <td style="font-size: 16pt;"><b>$$$</b></td>
                     </tr>
                     <tr>
                         <td>
                             <a href="http://www.hilton.com/search/es/us/ca/temecula/"
                                 class="accommodation-button">
+                                <img src="images/embassy-suites.jpg" alt="" 
+                                     class="accommodation-image">
                                    Embassy Suites
                             </a>
                         </td>
-                        <td rowspan="3" style="border-bottom: 2.5px solid whitesmoke;">
+                        <td rowspan="2">
                             <a href="www.airbnb.com"
                                 class="accommodation-button">
+                                <img src="images/airbnb.jpg" alt="" 
+                                     class="accommodation-image">
                                    Airbnb
-                            </a>
-                            <p>Good for multi-room booking</p>
+                            </a>                            
                         </td>
-                        <td rowspan="3" style="border-bottom: 2.5px solid whitesmoke;">
+                        <td rowspan="2">
                             <a href="http://pechanga.com/"
                                 class="accommodation-button">
+                                <img src="images/pechenga.jpg" alt="" 
+                                     class="accommodation-image">
                                    Pechanga Casino
-                            </a>
-                            <p>Large resort and casino, with shows and other entertainment.</p>
+                            </a>                            
                         </td>
                         <td>
                             <a href="https://www.southcoastwinery.com/"
                                 class="accommodation-button">
+                                <img src="images/south-coast-winery-resort.jpg" alt="" 
+                                     class="accommodation-image">
                                    South Coast
                             </a>                            
                         </td>                        
@@ -398,56 +437,60 @@
                         <td>
                             <a href="http://www.hilton.com/search/es/us/ca/temecula/"
                                 class="accommodation-button">
+                                <img src="images/hampton-inn.jpg" alt="" 
+                                     class="accommodation-image">
                                    Hampton Inn
                             </a>
                         </td>
                         <td>
                             <a href="https://www.pontevineyardinn.com/"
                                 class="accommodation-button">
+                                <img src="images/ponte.jpg" alt="" 
+                                     class="accommodation-image">
                                    Ponte
                             </a>
                         </td>
                     </tr>
-                    <tr>
-                        <td style="border-bottom: 2.5px solid whitesmoke;">
-                            <a href="www.lq.com/en/findandbook/hotel-details.temecula.html"
-                                class="accommodation-button">
-                                   La Quinta
-                            </a>
-                        </td>
-                        <td style="border-bottom: 2.5px solid whitesmoke;">
-                            <a href="https://www.carterestatewinery.com/"
-                                class="accommodation-button">
-                                   Carter Estate
-                            </a>
-                        </td>
-                    </tr>
-                </table>
-
+                </table>                
+                
                 <h1>For the Flyers</h1>
-                <p>Depending on you weekend plans you may wish to fly into one of the following airports</p>
+                <p>Depending on your weekend plans you may wish to fly into one of the following airports</p>
                 <table style="vertical-align: top; border-collapse: separate; 
-                       border-spacing: 50px 0;  width: 800px;">
+                       border-spacing: 50px 0;  width: 1100px;">
                     <tr>
                         <th>San Diego (SAN)</th>
                         <th>Ontario (ONT)</th>
                         <th>Los Angeles (LAX)</th>
                     </tr>
                     <tr>
-                        <td>Roughly 68 miles from venue (1 hour 15 minutes drive)</td>
-                        <td>Roughly 61 miles from venue (1 hour drive)</td>
-                        <td>Roughly 99 miles from venue (1 hour 55 minutes drive without traffic)</td>
-                    </tr>
-                    <tr>
-                        <td>Multiple Car Rental Services</td>
-                        <td>Multiple Car Rental Services</td>
-                        <td>Multiple Car Rental Services</td>
-                    </tr>
-                    <tr>
-                        <td style="border-bottom: 2.5px solid whitesmoke;">No Car? Transit Van Shuttle or Temecula Air Shuttle</td>
-                        <td style="border-bottom: 2.5px solid whitesmoke;">No Car? Go Airport Shuttle</td>
-                        <td style="border-bottom: 2.5px solid whitesmoke;">No Car? Get a Car! It's likely cheaper</td>
-                    </tr>
+                        <td class="travel">
+                            <img src="images/san-diego-airport.png" 
+                                 class="image" alt="">
+                            <ul class="text">
+                                <li>Roughly 68 miles from venue (1 hour 15 minutes drive)</li>
+                                <li>Multiple Car Rental Services</li>
+                                <li>No Car? Transit Van Shuttle or Temecula Air Shuttle</li>
+                            </ul>
+                        </td>
+                        <td class="travel">
+                            <img src="images/ontario-airport.png" 
+                                 class="image" alt="">
+                            <ul class="text">
+                                <li>Roughly 61 miles from venue (1 hour drive)</li>
+                                <li>Multiple Car Rental Services</li>
+                                <li>No Car? Go Airport Shuttle</li>
+                            </ul>
+                        </td>
+                        <td class="travel">
+                            <img src="images/lax.png"
+                                 class="image" alt="">
+                            <ul class="text">
+                                <li>Roughly 99 miles from venue (1 hour 55 minutes drive without traffic)</li>
+                                <li>Multiple Car Rental Services</li>
+                                <li>No Car? Get a Car! It's likely cheaper</li>
+                            </ul>
+                        </td>                        
+                    </tr>                    
                 </table>                
            </div>
         </section>
@@ -455,7 +498,7 @@
         <hr>
 
         <!-- RSVP -->
-        <section id="rsvp" class="w3-padding-64">
+        <section id="rsvp" class="w3-padding-64" style="background: rgb(107, 117, 136);color: whitesmoke">
             <h1> RSVP </h1>
             <div id="rsvp-main">
                 <div id="rsvp-intro">
@@ -466,7 +509,7 @@
                                 <td><input name="partyName" type="text" maxlength="64" required></td>
                             </tr>
                             <tr>
-                                <td>email:</td>
+                                <td>Email:</td>
                                 <td><input name="email" type="text" maxlength="64" required></td>
                             </tr>
                             <tr>
@@ -477,18 +520,18 @@
                             <tr>
                                 <td><input id="is-attending" type="radio" 
                                            name="attending" value="True"
-                                           onclick="isAttending()"> Will Attend</td>
+                                           onclick="isAttending()"> Will Attend </td>
                                 <td><input id="not-attending" type="radio" 
-                                           name="attending" value="False"
-                                           onclick="isAttending()"> Will Not Attend</td>
-                            </tr>
+                                           name="attending" value="True"
+                                           onclick="isAttending()"> Will Not Attend </td>
+                            </tr>                            
                             <tr id="partyNumRow"></tr>
                         </table>
                     </form>                
                 </div>
                 <div id="rsvp-guest-details"></div>
                 <div id="rsvp-submit"></div>
-            </div>
+            </div>            
         </section>
         
         <hr>

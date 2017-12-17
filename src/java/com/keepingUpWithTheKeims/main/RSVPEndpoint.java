@@ -79,7 +79,7 @@ public class RSVPEndpoint {
     private ResponseObject responseMessage(RequestObject requestObject){
         ResponseObject response = new ResponseObject();
         if (requestObject.isAttending()){
-            String thankYou = "Thank You "+requestObject.getPartyName()+"! We look forward to seeing you on the big day!";            
+            String thankYou = "Thank you "+requestObject.getPartyName()+"! We look forward to seeing you on the big day!";            
             response.setResponse(thankYou);
         } else {
             String thankYou = "We are sorry that you won't be able to join us "+requestObject.getPartyName()+". "
