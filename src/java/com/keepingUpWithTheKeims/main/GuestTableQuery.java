@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author zackkeim
+ * @author oso1018
  */
 public class GuestTableQuery {
     private final Connection connection;
@@ -30,36 +30,74 @@ public class GuestTableQuery {
     }
     
     public void upsertQuery(){
-        //Get Date
-        Date utilDate = new Date();        
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         
-        String upsertQuery = "replace into guest (composite_key, guest_name, "
-                + "email, age, entree, salad, over21, comments, last_updated_date) "
-                + "values(?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        String upsertQuery = "WITH upsert AS " +
+                            "(" +
+                            "  UPDATE guest " +
+                            "     SET guest_name = ?, " +
+                            "         email = ?, " +
+                            "         age = ?, " +
+                            "         entree = ?, "+ 
+                            "         salad = ?, "+ 
+                            "         over21 = ?, "+ 
+                            "         comments = ?, "+                 
+                            "         last_updated_date = NOW() " +
+                            "  WHERE composite_key = ? RETURNING* " +
+                            ") INSERT INTO guest " +
+                            "( " +
+                            "  composite_key, " +
+                            "  guest_name, " +
+                            "  email, " +
+                            "  age, " +
+                            "  entree, " +
+                            "  salad, "+ 
+                            "  over21, "+ 
+                            "  comments, "+ 
+                            "  last_updated_date " +
+                            ") " +
+                            "SELECT ?, " +
+                            "       ?, " +
+                            "       ?, " +
+                            "       ?, " +
+                            "       ?, " +
+                            "       ?, " +
+                            "       ?, " +
+                            "       ?, " +
+                            "       NOW()  " +
+                            "WHERE NOT EXISTS (SELECT * FROM upsert) " +
+                            ";";
                        
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(upsertQuery);
             
-            preparedStatement.setString(1, guest.getGuestName()+email);
-            preparedStatement.setString(2, guest.getGuestName());
-            preparedStatement.setString(3, email);
-            preparedStatement.setInt(4, guest.getAge());
-            preparedStatement.setString(5, guest.getEntree());
-            preparedStatement.setString(6, guest.getSalad());
-            preparedStatement.setBoolean(7, guest.isOver21());
-            preparedStatement.setString(8, guest.getComments());
-            preparedStatement.setString(9, df.format(utilDate));
+            
+            
+            preparedStatement.setString(1, guest.getGuestName());
+            preparedStatement.setString(2, email);
+            preparedStatement.setInt(3, guest.getAge());
+            preparedStatement.setString(4, guest.getEntree());
+            preparedStatement.setString(5, guest.getSalad());
+            preparedStatement.setBoolean(6, guest.isOver21());
+            preparedStatement.setString(7, guest.getComments());           
+            
+            preparedStatement.setString(8, guest.getGuestName()+email);
+            
+            preparedStatement.setString(9, guest.getGuestName()+email);          
+            preparedStatement.setString(10, guest.getGuestName());
+            preparedStatement.setString(11, email);
+            preparedStatement.setInt(12, guest.getAge());
+            preparedStatement.setString(13, guest.getEntree());
+            preparedStatement.setString(14, guest.getSalad());
+            preparedStatement.setBoolean(15, guest.isOver21());
+            preparedStatement.setString(16, guest.getComments());
             
             preparedStatement.execute();
             
-            connection.commit();            
+            connection.commit();
+            connection.close();
         } catch (SQLException ex) {
             Logger.getLogger(GuestTableQuery.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-        
     }
     
 }

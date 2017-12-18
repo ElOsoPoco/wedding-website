@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author zackkeim
+ * @author oso1018
  */
 public class RequestObject {
     private String partyName;
@@ -86,4 +86,10 @@ public class RequestObject {
         this.attending = attending;
     }
     
+    public String toJSONString(){
+        String result = "{";
+        result += "partyName: "+this.getPartyName()+", \\n";
+        result += "email: "+this.getEmail()+" \\n";
+        return result;        
+    }
 }

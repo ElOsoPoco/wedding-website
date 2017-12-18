@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author zackkeim
+ * @author oso1018
  */
 public class PartyTableQuery {
     private final Connection connection;
@@ -28,98 +28,53 @@ public class PartyTableQuery {
     public PartyTableQuery(RequestObject requestObject){
         this.connection = (new DatabaseConnectionFactory()).getConnection();
         this.requestObject = requestObject;
-    }
+    }   
     
-    public void updatePartyQuery(){
-        //Get Date
-        Date utilDate = new Date();        
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    public void upsertQuery(){        
         
-        String updateQuery = "update party set party_name = ?, party_number = ?, attending = ?, last_updated_date = ? where email = ?";
-                
-        PreparedStatement preparedStatement;
+        String upsertQuery = "WITH upsert AS " +
+                            "(" +
+                            "  UPDATE party " +
+                            "     SET party_name = ?, " +
+                            "         party_number = ?, " +
+                            "         attending = ?, " +
+                            "         last_updated_date = NOW() " +
+                            "  WHERE email = ? RETURNING* " +
+                            ") INSERT INTO party " +
+                            "( " +
+                            "  party_name, " +
+                            "  party_number, " +
+                            "  email, " +
+                            "  attending, " +
+                            "  last_updated_date " +
+                            ") " +
+                            "SELECT ?, " +
+                            "       ?, " +
+                            "       ?, " +
+                            "       ?, " +
+                            "       NOW()  " +
+                            "WHERE NOT EXISTS (SELECT * FROM upsert) " +
+                            ";";
+                       
         try {
-            preparedStatement = connection.prepareStatement(updateQuery);
-
-            preparedStatement.setString(1, requestObject.getPartyName());
-            preparedStatement.setInt(2, requestObject.getPartyNumber());                
-            preparedStatement.setBoolean(3, requestObject.isAttending());
-            preparedStatement.setString(4, df.format(utilDate));                
-            preparedStatement.setString(5, requestObject.getEmail());
-
-            Logger.getLogger(PartyTableQuery.class.getName()).log(Level.INFO, "Executing update in party table...");            
-            preparedStatement.executeUpdate();
-
-            connection.commit();
-        } catch (SQLException ex) {
-            Logger.getLogger(PartyTableQuery.class.getName()).log(Level.SEVERE, null, ex);
-        }        
-    }
-    
-    public void insertPartyQuery(){
-        //Get Date
-        Date utilDate = new Date();        
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        
-        String insertQuery = "insert into party values(?, ?, ?, ?, ?, ?);";
-
-        PreparedStatement preparedStatement;
-        try {
-            preparedStatement = connection.prepareStatement(insertQuery);
-        
-            preparedStatement.setString(1, requestObject.getPartyName());
-            preparedStatement.setInt(2, requestObject.getPartyNumber());
-            preparedStatement.setString(3, requestObject.getEmail());
-            preparedStatement.setBoolean(4, requestObject.isAttending());
-            preparedStatement.setString(5, df.format(utilDate));
-            preparedStatement.setString(6, df.format(utilDate));
-
-            Logger.getLogger(PartyTableQuery.class.getName()).log(Level.INFO, "Executing insert into party table...");            
-            preparedStatement.executeUpdate();
-
-            connection.commit();
-        } catch (SQLException ex) {
-            Logger.getLogger(PartyTableQuery.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-    public boolean checkIfPartyPresent(){                
-        String checkQuery = "select email from party where email = ? limit 1;";
-        PreparedStatement checkStatement;
-        ResultSet resultSet;
-        ArrayList<String> results = new ArrayList<>();
-        
-        boolean isPresent = false;
-        
-        try {
-            checkStatement = connection.prepareStatement(checkQuery);        
-            checkStatement.setString(1, requestObject.getEmail());
-
-            resultSet = checkStatement.executeQuery();
+            PreparedStatement preparedStatement = connection.prepareStatement(upsertQuery);
             
-            while(resultSet.next()){
-                results.add(resultSet.getString("email"));
-            }
+            preparedStatement.setString(1, requestObject.getPartyName());
+            preparedStatement.setInt(2, requestObject.getPartyNumber());            
+            preparedStatement.setBoolean(3, requestObject.isAttending());            
+            preparedStatement.setString(4, requestObject.getEmail());
             
-            if(results.size() == 1){
-                isPresent = true;
-            } else if(results.size() > 1){
-                //This should never get executed
-                Logger.getLogger(PartyTableQuery.class.getName()).log(Level.WARNING, 
-                        "Multiple entries for party");
-                isPresent = true;
-            }             
+            preparedStatement.setString(5, requestObject.getPartyName());
+            preparedStatement.setInt(6, requestObject.getPartyNumber()); 
+            preparedStatement.setString(7, requestObject.getEmail());
+            preparedStatement.setBoolean(8, requestObject.isAttending());
+            
+            preparedStatement.execute();
+            
+            connection.commit();
+            connection.close();
         } catch (SQLException ex) {
-            Logger.getLogger(PartyTableQuery.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GuestTableQuery.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return isPresent;
     }
-    
-    public void upsertPartyTable(){
-        if(checkIfPartyPresent()){
-            updatePartyQuery();
-        } else {
-            insertPartyQuery();
-        }
-    }    
 }

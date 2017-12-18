@@ -7,7 +7,7 @@ package com.keepingUpWithTheKeims.main;
 
 /**
  *
- * @author zackkeim
+ * @author oso1018
  */
 public class ResponseObject {
     private String response;

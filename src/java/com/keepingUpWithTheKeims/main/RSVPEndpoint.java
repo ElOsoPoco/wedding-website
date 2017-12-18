@@ -20,7 +20,7 @@ import javax.ws.rs.core.MediaType;
 /**
  * REST Web Service
  *
- * @author zackkeim
+ * @author oso1018
  */
 @Path("rsvp")
 public class RSVPEndpoint {
@@ -65,9 +65,11 @@ public class RSVPEndpoint {
     @Consumes(MediaType.APPLICATION_JSON) 
     @Produces(MediaType.APPLICATION_JSON)
     public ResponseObject postJsonTest(RequestObject requestObject){        
-        PartyTableQuery partyTableQuery = new PartyTableQuery(requestObject);        
+        PartyTableQuery partyTableQuery = new PartyTableQuery(requestObject);
+        Logger.getLogger(DatabaseConnectionFactory.class.getName()).log(Level.INFO,
+                    "Received request object via post..."+requestObject.toJSONString());        
         
-        partyTableQuery.upsertPartyTable();
+        partyTableQuery.upsertQuery();
         for(Guest guest : requestObject.getGuests()){
             GuestTableQuery guestTableQuery = new GuestTableQuery(guest, requestObject.getEmail());
             guestTableQuery.upsertQuery();

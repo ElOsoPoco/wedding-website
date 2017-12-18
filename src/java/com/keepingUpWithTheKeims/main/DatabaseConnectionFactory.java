@@ -13,22 +13,21 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author zackkeim
+ * @author oso1018
  */
 public class DatabaseConnectionFactory {
-    private final String dbName = "/Users/zackkeim/Documents/wedding-website/workspace/wedding.db";
+    private final String dbURL = "jdbc:postgresql://ec2-54-163-53-202.compute-1.amazonaws.com:5432/wedding";
     private Connection connection;
     
     public DatabaseConnectionFactory(){
         try {            
-            Class.forName("org.sqlite.JDBC");                    
+            Class.forName("org.postgresql.Driver");                    
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DatabaseConnectionFactory.class.getName()).log(Level.SEVERE, 
                     "Unable to find class for DB", ex);        
         }
-        try {
-            String dbURL = "jdbc:sqlite:"+dbName;            
-            connection = (Connection) DriverManager.getConnection(dbURL);
+        try {             
+            connection = (Connection) DriverManager.getConnection(dbURL, "wedding_rw", "Zack101888");
             connection.setAutoCommit(false);
             Logger.getLogger(DatabaseConnectionFactory.class.getName()).log(Level.INFO,
                     "Opened database successfully");
