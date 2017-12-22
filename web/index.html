@@ -3,11 +3,13 @@
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-        <title>Keeping Up with The Keims</title>
+        <title>Zack and Tiffany 2018</title>
         <link rel="stylesheet" href="css/w3-wedding-style.css">
         <link href='https://fonts.googleapis.com/css?family=Felipa' rel='stylesheet'>
+        <link rel="icon" href="images/red-heart.png">
         <script src="javascript/wedding-website.js" type="text/javascript"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
         <style>
             body {
                 text-align: center;                
@@ -42,23 +44,91 @@
                 margin: 4px 2px;
                 display: inline-block;
                 text-decoration:none;
-                height: 50px;
-                width: 150px;
+                max-height: 50px;
+                max-width: 150px;
             }
 
-            .accommodation-button:hover {
-                font-weight: bolder;                
+            .accommodation-button:hover {                
+                -webkit-transition-duration: 0.4s; /* Safari */
+                transition-duration: 0.4s;                
+                font-weight: bolder;
             }                                   
-            .accommodations-table td {                
-                vertical-align: top;                
+            .accommodation-table td {                
+                vertical-align: top; 
+                align-content: center;
             }
             .accommodation-image {
                 display:block;
                 width:100%;
-                height:auto;
+                height: 100px;
                 border-radius: 15px;
                 opacity: 0.65;
             }
+            @media only screen and (max-width: 600px){
+                .accommodation-table {
+                    display: none;
+                }
+                .accommodation-image {
+                    /*display: none;*/
+                }
+                .flower-image {
+                    display: none;
+                }
+                .registry-image {
+                    max-width: 300px;
+                    height: auto;
+                }
+                .schedule-label {
+                    /*display: none;*/
+                }
+                #wedding-party-table {
+                    /*display: none;*/
+                }
+                #airport-table {
+                    /*display: none;*/                                        
+                }
+                #airport-table td {
+                    top: 6px;
+                    left: 6px;
+                    width: 45%; 
+                    padding-right: 10px; 
+                }
+                .airport-image {
+                    display: none;
+                }
+                /* Force table to not be like tables anymore */
+                .mobile-vertical-table table, .mobile-vertical-table thead, .mobile-vertical-table tbody, .mobile-vertical-table th, .mobile-vertical-table td, .mobile-vertical-table tr { 
+                        display: block;
+                }
+
+                /* Hide table headers (but not display: none;, for accessibility) */
+                .mobile-vertical-table thead tr { 
+                        position: absolute;
+                        top: -9999px;
+                        left: -9999px;
+                }
+
+                /*tr { border: 1px solid #ccc; }*/
+
+                .mobile-vertical-table td { 
+                        /* Behave  like a "row" */
+                        border: none;
+                        /*border-bottom: 1px solid #eee; */
+                        position: relative;
+                        /*padding-left: 50%; */
+                }
+
+                .mobile-vertical-table td:before { 
+                        /* Now like a table header */
+                        position: absolute;
+                        /* Top/left values mimic padding */
+                        top: 6px;
+                        left: 6px;
+                        width: 45%; 
+                        padding-right: 10px; 
+                        white-space: nowrap;
+                }
+            } 
             .accommodation-image:hover {
                 -webkit-transition-duration: 0.4s; /* Safari */
                 transition-duration: 0.4s;
@@ -225,7 +295,7 @@
                 </a>
                 <table id="schedule-table" style="margin-left: auto; margin-right: auto">
                     <tr>
-                        <td><img src="images/ceremony.png" alt="" class="schedule-table-image"> 4:00 Ceremony </td>
+                        <td><img src="images/ceremony.png" alt="" class="schedule-table-image"> 4:00 Ceremony</td>
                         <td><img src="images/toasts.png" alt="" class="schedule-table-image"> 6:00 Toasts </td>
                     </tr>
                     <tr>
@@ -282,8 +352,8 @@
         <!-- Wedding Party -->
         <section id="wedding_party" class="w3-padding-64">
             <h1> The Wedding Party </h1>
-            <div>            
-            <table style="border-spacing:75px 0;">                
+            <div id="bridesmaid">            
+            <table  id="wedding-party-table" class="mobile-vertical-table" style="border-spacing:75px 0; margin-left: auto; margin-right: auto">                
                 <tr>
                     <td style="vertical-align: top">
                         <ul style="list-style: none;">
@@ -323,9 +393,9 @@
                                     <p class="wedding-party-text">Andrea met Tiffany after coming home periodically for holiday visits to see her twin sister, Amanda. After relocating to Orange County, Andrea was keen on saving Tiffany from jumping into the routine of suburbia, having a special knack for finding new adventures with her friends. Andrea is such a force of positivity and one of Southern California best event organizer’s.</p>
                                 </div>
                             </li>
-                        </ul>    
+                        </ul>                    
                     </td >
-                    <td style="vertical-align: top">
+                    <td style="vertical-align: top">                   
                         <ul style="list-style: none;">
                             <li style="font-weight: bold">Groomsmen</li>
                             <li class="wrapper">
@@ -364,25 +434,25 @@
                                 </div>
                             </li>
                         </ul>                        
-                    </td>                        
+                   </td>                        
                 </tr>                
             </table>
-            <img src="images/flower.png" alt="" style="padding: 0; height: 300px; width: 400px;">
+            <img class='flower-image' src="images/flower.png" alt="" style="padding: 0; height: 300px; width: 400px;">
             </div>
         </section>
 
         <hr>
         
         <!-- Accommodations and Travel -->
-        <section id="accommodations" class="w3-display-container">
+        <section id="accommodations">
             <!--  -->
-            <div class="w3-padding-64 accommodations-table">
+            <div class="w3-padding-64">
                 <h1>Accommodations</h1>
                 <p>
                     We recommend using <a href="www.booking.com">booking.com</a> to find the best possible rates. Outside of booking.com, we recommend the following hotels:
                 </p>
                 <table style="vertical-align: top; border-collapse: separate; 
-                       border-spacing: 40px 0; width: 1100px; table-layout: fixed">
+                       border-spacing: 40px 0; max-width: 1100px;" class='accommodation-table'>
                     <tr>
                         <th>Just Get Me A Place</th>
                         <th>Family/Group Bookings</th>
@@ -405,7 +475,7 @@
                             </a>
                         </td>
                         <td rowspan="2">
-                            <a href="www.airbnb.com"
+                            <a href="http://www.airbnb.com"
                                 class="accommodation-button">
                                 <img src="images/airbnb.jpg" alt="" 
                                      class="accommodation-image">
@@ -451,8 +521,8 @@
                 
                 <h1>For the Flyers</h1>
                 <p>Depending on your weekend plans you may wish to fly into one of the following airports</p>
-                <table style="vertical-align: top; border-collapse: separate; 
-                       border-spacing: 50px 0;  width: 1100px;">
+                <table id="airport-table" class="mobile-vertical-table" style="vertical-align: top; border-collapse: separate; 
+                       border-spacing: 50px 0;  max-width: 1100px;">
                     <tr>
                         <th>San Diego (SAN)</th>
                         <th>Ontario (ONT)</th>
@@ -461,7 +531,7 @@
                     <tr>
                         <td class="travel">
                             <img src="images/san-diego-airport.png" 
-                                 class="image" alt="">
+                                 class="airport-image" alt="">
                             <ul class="text">
                                 <li>Roughly 68 miles from venue (1 hour 15 minutes drive)</li>
                                 <li>Multiple Car Rental Services</li>
@@ -470,7 +540,7 @@
                         </td>
                         <td class="travel">
                             <img src="images/ontario-airport.png" 
-                                 class="image" alt="">
+                                 class="airport-image" alt="">
                             <ul class="text">
                                 <li>Roughly 61 miles from venue (1 hour drive)</li>
                                 <li>Multiple Car Rental Services</li>
@@ -479,7 +549,7 @@
                         </td>
                         <td class="travel">
                             <img src="images/lax.png"
-                                 class="image" alt="">
+                                 class="airport-image" alt="">
                             <ul class="text">
                                 <li>Roughly 99 miles from venue (1 hour 55 minutes drive without traffic)</li>
                                 <li>Multiple Car Rental Services</li>
@@ -518,9 +588,10 @@
                                            name="attending" value="True"
                                            onclick="isAttending()"> Will Attend </td>
                                 <td><input id="not-attending" type="radio" 
-                                           name="attending" value="True"
+                                           name="attending" value="False"
                                            onclick="isAttending()"> Will Not Attend </td>
-                            </tr>                            
+                            </tr>   
+                            <tr id="addYourself"></tr>
                             <tr id="partyNumRow"></tr>
                         </table>
                     </form>                
@@ -539,11 +610,11 @@
                 We appreciate you coming from far and wide to be with us this Memorial Day Weekend. Your attendance is as good a gift as any. Who really needs a Vitamix, anyhow? (However, in the event you find it necessary, the exact one the bride wants can be found and even purchased and shipped directly to the bride and groom on our Zola Registry).
             </p>
             <p>
-                If you feel inclined to add a little shimmer to our otherwise dull china collection, you can browse our `wants’ below on Zola. Our if you want to add some extra adventure to our Honeymoon, you can also contribute to that. 
+                If you feel inclined to add a little shimmer to our otherwise dull china collection, you can browse our 'wants’ below on Zola. Or if you want to add some extra adventure to our Honeymoon, you can also contribute to that. 
             </p>
             
             <a href="https://www.zola.com/registry/tiffanyandzack525">
-                <img src="images/zola.jpg" class="hover-button" style="height: 252px; width: 455px">
+                <img src="images/zola.jpg" class="hover-button registry-image" style="height: 252px; width: 455px">
             </a>
         </section>
         

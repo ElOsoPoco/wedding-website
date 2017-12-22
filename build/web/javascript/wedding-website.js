@@ -27,7 +27,7 @@ function sendRSVPRequest() {
         contentType: 'application/json',
         dataType: "json",
         data: JSON.stringify(view),
-        url: 'http://ec2-54-163-53-202.compute-1.amazonaws.com/KeepingUpWithTheKeims/webresources/rsvp/post_rsvp',
+        url: 'http://zackandtiffany2018.com/KeepingUpWithTheKeims/webresources/rsvp/post_rsvp',
         // you will want to update success function to get specific
         // JSON data fields for output back to the original HTML page
         success: function(data) {
@@ -38,7 +38,7 @@ function sendRSVPRequest() {
         },
         error: function() {
             $("#rsvp-main").html("<b>An error has occurred!</b><br \> \n\
-                             <img src='images/frowny-face.jpg'>");
+                             <img src='images/frowny-face.gif'>");
         }
     });
 };
@@ -46,7 +46,7 @@ function sendRSVPRequest() {
 //TODO: Need to move HTML-esq elements to index.html
 function partyDetails(){
     rsvpGuestDetails = document.getElementById('rsvp-guest-details');
-    rsvpGuestDetails.innerHTML = "";
+    rsvpGuestDetails.innerHTML = "";    
  
     var partyNumber = parseInt(document.forms["rsvp-intro-form"]["partyNumber"].value);  
 
@@ -182,15 +182,25 @@ function serializeRSVP(){
 }
 
 function isAttending(){
-  rsvpIntroTable = document.getElementById("rsvp-intro-table");
-  rsvpGuestDetails = document.getElementById("rsvp-guest-details");
-  sendButtonDiv = document.getElementById("rsvp-submit");
+    rsvpIntroTable = document.getElementById("rsvp-intro-table");
+    rsvpGuestDetails = document.getElementById("rsvp-guest-details");
+    sendButtonDiv = document.getElementById("rsvp-submit");
+
+    document.getElementById("partyNumRow").innerHTML = "";
+    sendButtonDiv.innerHTML = "";
+
+    addYouRow = document.getElementById("addYourself");
+    addYouRow.innerHTML = "";
   
-  document.getElementById("partyNumRow").innerHTML = "";
-  sendButtonDiv.innerHTML = "";
-  
-    if(document.getElementById("is-attending").checked){    
-      row = document.getElementById("partyNumRow");      
+    if(document.getElementById("is-attending").checked){       
+      
+      cell = addYouRow.insertCell(-1);
+      cell.innerHTML = "Don't forget to count yourself and add your food choices";
+      cell.colSpan = 2;
+      cell.style.fontWeight = "bold";
+      cell.style.color = "pink";
+      
+      row = document.getElementById("partyNumRow");
 
       cell = row.insertCell(-1);
       partyNumLabel = document.createElement("p");
