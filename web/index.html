@@ -5,6 +5,8 @@
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <title>Zack and Tiffany 2018</title>
         <link rel="stylesheet" href="css/w3-wedding-style.css">
+        <link rel="stylesheet" href="css/desktop-style-sheet.css">
+        <link rel="stylesheet" href="css/mobile-style-sheet.css">
         <link href='https://fonts.googleapis.com/css?family=Felipa' rel='stylesheet'>
         <link rel="icon" href="images/red-heart.png">
         <script src="javascript/wedding-website.js" type="text/javascript"></script>
@@ -13,228 +15,7 @@
         <style>
             body {
                 text-align: center;                
-            }
-            
-            #schedule-table td {
-                text-align: left;
-                vertical-align: middle;                
             }            
-            
-            .hover-button {
-                -webkit-transition-duration: 0.4s; /* Safari */
-                transition-duration: 0.4s;
-                border: 2px solid black;
-                padding: 16px 32px;
-                text-align: center;
-                margin: 4px 2px;
-                display: inline-block;
-                text-decoration:none;
-            }
-            
-            .hover-button:hover {
-                background-color: black;
-                color: white;
-            }
-            
-            .accommodation-button {
-                -webkit-transition-duration: 0.4s; /* Safari */
-                transition-duration: 0.4s;                
-                
-                text-align: center;
-                margin: 4px 2px;
-                display: inline-block;
-                text-decoration:none;
-                max-height: 50px;
-                max-width: 150px;
-            }
-
-            .accommodation-button:hover {                
-                -webkit-transition-duration: 0.4s; /* Safari */
-                transition-duration: 0.4s;                
-                font-weight: bolder;
-            }                                   
-            .accommodation-table td {                
-                vertical-align: top; 
-                align-content: center;
-            }
-            .accommodation-image {
-                display:block;
-                width:100%;
-                height: 100px;
-                border-radius: 15px;
-                opacity: 0.65;
-            }
-            @media only screen and (max-width: 600px){
-                .accommodation-table {
-                    display: none;
-                }
-                .accommodation-image {
-                    /*display: none;*/
-                }
-                .flower-image {
-                    display: none;
-                }
-                .registry-image {
-                    max-width: 300px;
-                    height: auto;
-                }
-                .schedule-label {
-                    /*display: none;*/
-                }
-                #wedding-party-table {
-                    /*display: none;*/
-                }
-                #airport-table {
-                    /*display: none;*/                                        
-                }
-                #airport-table td {
-                    top: 6px;
-                    left: 6px;
-                    width: 45%; 
-                    padding-right: 10px; 
-                }
-                .airport-image {
-                    display: none;
-                }
-                /* Force table to not be like tables anymore */
-                .mobile-vertical-table table, .mobile-vertical-table thead, .mobile-vertical-table tbody, .mobile-vertical-table th, .mobile-vertical-table td, .mobile-vertical-table tr { 
-                        display: block;
-                }
-
-                /* Hide table headers (but not display: none;, for accessibility) */
-                .mobile-vertical-table thead tr { 
-                        position: absolute;
-                        top: -9999px;
-                        left: -9999px;
-                }
-
-                /*tr { border: 1px solid #ccc; }*/
-
-                .mobile-vertical-table td { 
-                        /* Behave  like a "row" */
-                        border: none;
-                        /*border-bottom: 1px solid #eee; */
-                        position: relative;
-                        /*padding-left: 50%; */
-                }
-
-                .mobile-vertical-table td:before { 
-                        /* Now like a table header */
-                        position: absolute;
-                        /* Top/left values mimic padding */
-                        top: 6px;
-                        left: 6px;
-                        width: 45%; 
-                        padding-right: 10px; 
-                        white-space: nowrap;
-                }
-            } 
-            .accommodation-image:hover {
-                -webkit-transition-duration: 0.4s; /* Safari */
-                transition-duration: 0.4s;
-                opacity: 1;
-            }
-            .schedule-table-image {
-                height: 50px;
-                width: 50px;
-                vertical-align: middle;
-                padding: 2.5%;
-            }
-            .story-image {
-                height: 235px;
-                width: 225px;
-                padding: 1%;                
-            }
-            table {
-                margin-left:auto; 
-                margin-right:auto
-            }
-            .wedding-intro {
-                font-family: 'Felipa';
-                font-weight: bold;                
-            }
-            .story-text {
-                text-align: left;
-            }
-            .wedding-party-images {
-                max-width: 125px;
-                max-height: 125px;
-                border-radius: 100px;
-            }
-            .wedding-party-text {
-                max-width: 475px;
-            }
-            .wrapper {
-                padding-bottom: 5px;
-                padding-top: 5px;
-                padding-left: 10px;
-                padding-right: 10px;                
-            }
-            .wrapper .text {          
-                display: none;                
-            }
-            .wrapper:hover .text {
-                -webkit-transition-duration: 0.4s; /* Safari */
-                transition-duration: 0.4s;
-                display: block;
-                height: auto;
-                width: auto;
-                padding: 5%;                
-            }
-            ul {
-                position:relative;
-                display: inline-block;  
-                list-style: none;
-                width:100%;
-                text-align: center;
-                margin: auto;
-                padding: 0;
-            }
-            .faq-table {
-                text-align: left;
-                vertical-align: top;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .faq-table td {
-                width: 500px;
-                padding: 10px;
-            }
-            .food {
-                width: 25px;
-                height: 25px;
-            }
-            .travel .image {
-                display: block;
-                width:100%;
-                height:auto;                
-            }
-            .travel .text {
-                display: none;
-            }
-            .travel:hover .image {
-                -webkit-transition-duration: 0.4s; /* Safari */
-                transition-duration: 0.4s;
-                display: none;
-            }
-            .travel:hover .text {
-                -webkit-transition-duration: 0.4s; /* Safari */
-                transition-duration: 0.4s;
-                display: block;
-            }
-            .travel li {
-                display: block;
-                width: 100%;
-                height: auto;
-                text-align: left;
-                padding: 10px;
-            }
-            .rsvp-detail-label {
-                text-align: right;
-            }
-            .rsvp-radio-button {
-                text-align: left;
-            }
         </style>            
     </head>
     <body>
@@ -648,7 +429,7 @@
                 <tr>
                     <td>
                         <p style="font-weight: bold">What is the parking situation?</p>
-                        <p>There is a large parking area at Villa De Amore. Overnight parking is allowed with an early next day exit (before 10a), but if you're planning to drink, we would recommend an Uber or Lyft to/ from your hotel. DO NOT DRINK AND DRIVE!</p>
+                        <p>There is a large parking area at Villa De Amore. Overnight parking is allowed with an early next day exit (before 10am), but if you're planning to drink, we would recommend an Uber or Lyft to/ from your hotel. DO NOT DRINK AND DRIVE!</p>
                     </td>
                 </tr>
                 <tr>
