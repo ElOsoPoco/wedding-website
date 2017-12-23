@@ -11,13 +11,9 @@
         <link rel="icon" href="images/red-heart.png">
         <script src="javascript/wedding-website.js" type="text/javascript"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-        <style>
-            body {
-                text-align: center;                
-            }            
-        </style>            
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">           
     </head>
+    
     <body>
         <!-- Navigation Bar -->
         <nav id="navigation_bar" class="w3-top">
@@ -28,7 +24,7 @@
                   <a href="#schedule" class="w3-bar-item w3-button">Schedule</a>
                   <a href="#story" class="w3-bar-item w3-button">Story</a>
                   <a href="#wedding_party" class="w3-bar-item w3-button">Wedding Party</a>
-                  <a href="#accommodations" class="w3-bar-item w3-button">Accommodations and Travel</a>
+                  <a href="#accommodations-travel" class="w3-bar-item w3-button">Accommodations and Travel</a>
                   <a href="#rsvp" class="w3-bar-item w3-button">RSVP</a>
                   <a href="#registry" class="w3-bar-item w3-button">Registry</a>
                   <a href="#faq" class="w3-bar-item w3-button">FAQ</a>
@@ -70,22 +66,22 @@
                 <p> Villa De Amore </p>
                 <p> 40205 Calle Cabernet</p>
                 <p> Temecula, CA 92591 </p>
-                <a class="hover-button"
+                <a class="hover-button link-button"
                    href="https://www.google.com/maps/place/Villa+De+Amore+Temecula+Wedding+Venue/@33.5386997,-117.0707479,17z">
                     Directions
                 </a>
-                <table id="schedule-table" style="margin-left: auto; margin-right: auto">
+                <table id="schedule-table">
                     <tr>
-                        <td><img src="images/ceremony.png" alt="" class="schedule-table-image"> 4:00 Ceremony</td>
-                        <td><img src="images/toasts.png" alt="" class="schedule-table-image"> 6:00 Toasts </td>
+                        <td><img src="images/ceremony.png" alt=""> 4:00 Ceremony</td>
+                        <td><img src="images/toasts.png" alt=""> 6:00 Toasts </td>
                     </tr>
                     <tr>
-                        <td><img src="images/cocktail.png" alt="" class="schedule-table-image"> 4:30 Cocktail Hour </td>
-                        <td><img src="images/dancing.png" alt="" class="schedule-table-image"> 7:30 Dancing </td>
+                        <td><img src="images/cocktail.png" alt=""> 4:30 Cocktail Hour </td>
+                        <td><img src="images/dancing.png" alt=""> 7:30 Dancing </td>
                     </tr>
                     <tr>
-                        <td><img src="images/dinner.png" alt="" class="schedule-table-image"> 5:30 Dinner </td>
-                        <td><img src="images/uber.png" alt="" class="schedule-table-image"> 10:00 Head Home </td>
+                        <td><img src="images/dinner.png" alt=""> 5:30 Dinner </td>
+                        <td><img src="images/uber.png" alt=""> 10:00 Head Home </td>
                     </tr>
                 </table>
             </div>
@@ -97,7 +93,7 @@
                 <h3>5:00 PM</h3>
                 <p>28839 Chatham Lane</p>
                 <p>Temecula, CA</p>
-                <a class="hover-button"
+                <a class="hover-button link-button"
                    href="https://www.google.com/maps/place/28839+Chatham+Lane%2BTemecula%2C+CA+92591%2BUnited+States">
                     Directions
                 </a>
@@ -112,17 +108,17 @@
                     background-origin:padding-box;
                     background-size: cover;">
             
-            <div id="story-text" class="w3-padding-64" style="max-width:800px; margin-left: auto; margin-right: auto">
+            <div id="story-text" class="w3-padding-64 display-text">
                 <h1> Story </h1>
-                <img src="images/purple-suite.jpg" alt="" class="story-image" style="float: left">
-                <p class="story-text">
+                <img src="images/purple-suite.jpg" alt="" style="float: left" class="mobile-none-display">
+                <p>
                     Einstein once said, “Coincidence is God’s way of remaining anonymous.” After multiple near miss encounters in various states, Zack and Tiffany finally met in Tahoe California for a new hire orientation at a Boutique consulting firm. Although living across the country from one another, both ended up being placed on the same mid-west client for 9 months during one of the worst winters in recent history- 2013 Polar Vortex. Perhaps it was the 0 degree weather, but these two soon became inseparable. Before even dating, their coworkers coined the name “Zaffany” to describe their connection. This only became more evident by the surprising revelations of their ‘almost meets’ from Zack’s undergraduate degree in Washington where Tiffany was raised to both securing job offerings for different companies that share the same New York City building.
                 </p>
-                <img src="images/engagement.jpg" alt="" class="story-image" style="float: right">            
-                <p class="story-text">
+                <img src="images/engagement.jpg" alt="" style="float: right" class="mobile-none-display">            
+                <p>
                     By the project’s end, Zack and Tiffany had fallen in love and Zack decided he wanted to quit the consulting firm and take his chances in Orange County. The consulting lifestyle grew tiresome for Tiffany and when asked by a recruiter to meet with Director at a Fortune 500 for a new gig, she jumped on the opportunity. As recruiters typically get paid through their placements and can’t afford candidates to apply through different means, she didn’t know the company she would be interviewing with until day of, which happened to be Ingram Micro, the company Zack was working for. Tiffany received the offer and ended up working at a second company with Zack. Although in different departments, their relationship grew stronger with living in the same city, knowing each other’s bosses, sharing stories, and ultimately having similar life experiences. Zack and Tiffany have now moved on to two different tech companies, but they share a deep history of knowing similar places and people, and enjoy traveling.
                 </p>            
-                <p class="story-text">
+                <p>
                     “We welcome you to our wedding and to help us share in our soon to be honeymoon travels of Southern France and Italy with a French Country Elegance themed wedding in Southern California’s wine country. Cheers.”
                 </p>
             </div>
@@ -218,120 +214,128 @@
                    </td>                        
                 </tr>                
             </table>
-            <img class='flower-image' src="images/flower.png" alt="" style="padding: 0; height: 300px; width: 400px;">
+            <img class="mobile-none-display" src="images/flower.png" alt="" style="padding: 0; height: 300px; width: 400px;">
             </div>
         </section>
 
         <hr>
         
         <!-- Accommodations and Travel -->
-        <section id="accommodations">
-            <!--  -->
-            <div class="w3-padding-64">
+        <section id="accommodations-travel">
+            <!-- Accommodations -->
+            <div id="accommodations" class="w3-padding-64 display-text">
                 <h1>Accommodations</h1>
                 <p>
                     We recommend using <a href="www.booking.com">booking.com</a> to find the best possible rates. Outside of booking.com, we recommend the following hotels:
                 </p>
-                <table style="vertical-align: top; border-collapse: separate; 
-                       border-spacing: 40px 0; max-width: 1100px;" class='accommodation-table'>
+                <table class="mobile-vertical-table">                    
                     <tr>
-                        <th>Just Get Me A Place</th>
-                        <th>Family/Group Bookings</th>
-                        <th>For the Gambler</th>
-                        <th>Romantic Getaway</th>
-                    </tr>
-                    <tr>
-                        <td style="font-size: 16pt;"><b>$-$$</b></td>
-                        <td style="font-size: 16pt;"><b>$$</b></td>
-                        <td style="font-size: 16pt;"><b>$$</b></td>
-                        <td style="font-size: 16pt;"><b>$$$</b></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="http://www.hilton.com/search/es/us/ca/temecula/"
-                                class="accommodation-button">
-                                <img src="images/embassy-suites.jpg" alt="" 
-                                     class="accommodation-image">
-                                   Embassy Suites
-                            </a>
+                        <td><p class="table-head">Just Get Me A Place</p>
+                            <p class="dollars">$-$$</p>
+                            <ul>
+                                <li>
+                                    <a href="http://www.hilton.com/search/es/us/ca/temecula/"
+                                    class="hover-button accommodation-button">
+                                        <img src="images/embassy-suites.jpg" alt="" 
+                                             class="mobile-none-display">
+                                           Embassy Suites
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://hamptoninn3.hilton.com/en/hotels/california/hampton-inn-and-suites-temecula-LAXHSHX/index.html"
+                                    class="hover-button accommodation-button">
+                                        <img src="images/hampton-inn.jpg" alt="" 
+                                            class="mobile-none-display">
+                                            Hampton Inn 
+                                    </a>
+                                </li>
+                            </ul>                        
                         </td>
-                        <td rowspan="2">
-                            <a href="http://www.airbnb.com"
-                                class="accommodation-button">
-                                <img src="images/airbnb.jpg" alt="" 
-                                     class="accommodation-image">
-                                   Airbnb
-                            </a>                            
-                        </td>
-                        <td rowspan="2">
-                            <a href="http://pechanga.com/"
-                                class="accommodation-button">
-                                <img src="images/pechenga.jpg" alt="" 
-                                     class="accommodation-image">
-                                   Pechanga Casino
-                            </a>                            
+                        <td><p class="table-head">Family/Group Bookings</p>
+                            <p class="dollars">$$</p>
+                            <ul>
+                                <li>
+                                    <a href="https://www.airbnb.com/"
+                                    class="hover-button accommodation-button">
+                                        <img src="images/airbnb.jpg" alt="" 
+                                            class="mobile-none-display">
+                                            Airbnb
+                                    </a>
+                                </li>
+                            </ul>    
                         </td>
                         <td>
-                            <a href="https://www.southcoastwinery.com/"
-                                class="accommodation-button">
-                                <img src="images/south-coast-winery-resort.jpg" alt="" 
-                                     class="accommodation-image">
-                                   South Coast
-                            </a>                            
-                        </td>                        
-                    </tr>
-                    <tr>
+                            <p class="table-head">For the Gambler</p>
+                            <p class="dollars">$$</p>
+                            <ul>
+                                <li>
+                                    <a href="http://pechanga.com/"
+                                        class="hover-button accommodation-button">
+                                        <img src="images/pechenga.jpg" alt="" 
+                                            class="mobile-none-display">
+                                            Pechanga Casino
+                                    </a> 
+                                </li>
+                            </ul>
+                        </td>                                                
                         <td>
-                            <a href="http://www.hilton.com/search/es/us/ca/temecula/"
-                                class="accommodation-button">
-                                <img src="images/hampton-inn.jpg" alt="" 
-                                     class="accommodation-image">
-                                   Hampton Inn
-                            </a>
+                            <p class="table-head">Romantic Getaway</p>
+                            <p class="dollars">$$$</p>
+                            <ul>
+                                <li>
+                                    <a href="https://www.pontevineyardinn.com/"
+                                    class="hover-button accommodation-button">
+                                        <img src="images/ponte.jpg" alt="" 
+                                             class="mobile-none-display">
+                                            Ponte
+                                    </a>                            
+                                </li>
+                                <li>
+                                    <a href="https://www.southcoastwinery.com/"
+                                        class="hover-button accommodation-button">
+                                        <img src="images/south-coast-winery-resort.jpg" 
+                                             alt="" class="mobile-none-display">
+                                           South Coast
+                                    </a>
+                                </li>
+                            </ul>   
                         </td>
-                        <td>
-                            <a href="https://www.pontevineyardinn.com/"
-                                class="accommodation-button">
-                                <img src="images/ponte.jpg" alt="" 
-                                     class="accommodation-image">
-                                   Ponte
-                            </a>
-                        </td>
-                    </tr>
+                    </tr>                    
                 </table>                
+            </div>
                 
+            <div id="travel">
                 <h1>For the Flyers</h1>
-                <p>Depending on your weekend plans you may wish to fly into one of the following airports</p>
-                <table id="airport-table" class="mobile-vertical-table" style="vertical-align: top; border-collapse: separate; 
-                       border-spacing: 50px 0;  max-width: 1100px;">
+                <p>Depending on your weekend plans you may wish to fly into one of the following airports:</p>
+                <table id="airport-table" class="mobile-vertical-table">
                     <tr>
                         <th>San Diego (SAN)</th>
                         <th>Ontario (ONT)</th>
                         <th>Los Angeles (LAX)</th>
                     </tr>
-                    <tr>
-                        <td class="travel">
+                    <tr class="mobile-none-display">
+                        <td>
                             <img src="images/san-diego-airport.png" 
-                                 class="airport-image" alt="">
-                            <ul class="text">
+                                 class="hover-button" alt="">
+                            <ul>
                                 <li>Roughly 68 miles from venue (1 hour 15 minutes drive)</li>
                                 <li>Multiple Car Rental Services</li>
                                 <li>No Car? Transit Van Shuttle or Temecula Air Shuttle</li>
                             </ul>
                         </td>
-                        <td class="travel">
+                        <td>
                             <img src="images/ontario-airport.png" 
-                                 class="airport-image" alt="">
-                            <ul class="text">
+                                 class="hover-button" alt="">
+                            <ul>
                                 <li>Roughly 61 miles from venue (1 hour drive)</li>
                                 <li>Multiple Car Rental Services</li>
                                 <li>No Car? Go Airport Shuttle</li>
                             </ul>
                         </td>
-                        <td class="travel">
+                        <td>
                             <img src="images/lax.png"
-                                 class="airport-image" alt="">
-                            <ul class="text">
+                                 class="hover-button" alt="">
+                            <ul>
                                 <li>Roughly 99 miles from venue (1 hour 55 minutes drive without traffic)</li>
                                 <li>Multiple Car Rental Services</li>
                                 <li>No Car? Get a Car! It's likely cheaper</li>
@@ -385,7 +389,7 @@
         <hr>
 
         <!-- Registry -->
-        <section class="w3-padding-64" id="registry" style="max-width:800px; margin-left: auto; margin-right: auto;">
+        <section class="w3-padding-64 display-text" id="registry" style="max-width:800px; margin-left: auto; margin-right: auto;">
             <h1> Registry </h1>
             <p>
                 We appreciate you coming from far and wide to be with us this Memorial Day Weekend. Your attendance is as good a gift as any. Who really needs a Vitamix, anyhow? (However, in the event you find it necessary, the exact one the bride wants can be found and even purchased and shipped directly to the bride and groom on our Zola Registry).
@@ -395,7 +399,7 @@
             </p>
             
             <a href="https://www.zola.com/registry/tiffanyandzack525">
-                <img src="images/zola.jpg" class="hover-button registry-image" style="height: 252px; width: 455px">
+                <img src="images/zola.jpg" class="hover-button link-button registry-image" style="height: 252px; width: 455px" alt="">
             </a>
         </section>
         
@@ -404,7 +408,7 @@
         <!-- FAQ -->
         <section id="faq" class="w3-padding-64 w3-opacity" style="background-color: black; color: whitesmoke">
             <h1>FAQ</h1>
-            <table class="faq-table">
+            <table class="mobile-vertical-table">
                 <tr>
                     <td>
                         <p style="font-weight: bold">What should I wear?</p>

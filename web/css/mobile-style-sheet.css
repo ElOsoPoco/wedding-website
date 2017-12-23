@@ -8,41 +8,17 @@ and open the template in the editor.
     Author     : zackkeim
 */
 
-@media only screen and (max-width: 600px){
-    img, table {
-        max-width: 320px;
-    } 
-    .accommodation-table {
-        display: none;
-    }
-    .accommodation-image {
-        /*display: none;*/
-    }
-    .flower-image {
-        display: none;
-    }
-    .registry-image {
+@media only screen and (max-width: 600px){    
+    img, table, p {
         max-width: 300px;
-        height: auto;
+        margin-left: auto;
+        margin-right: auto;
     }
-    .schedule-label {
-        /*display: none;*/
-    }
-    #wedding-party-table {
-        /*display: none;*/
-    }
-    #airport-table {
-        /*display: none;*/                                        
-    }
-    #airport-table td {
-        top: 6px;
-        left: 6px;
-        width: 45%; 
-        padding-right: 10px; 
-    }
-    .airport-image {
-        display: none;
-    }
+    
+    .mobile-none-display{
+        display: none !important;
+    } 
+    
     /* Force table to not be like tables anymore */
     .mobile-vertical-table table, .mobile-vertical-table thead, .mobile-vertical-table tbody, .mobile-vertical-table th, .mobile-vertical-table td, .mobile-vertical-table tr { 
         display: block;
@@ -53,9 +29,6 @@ and open the template in the editor.
         top: -9999px;
         left: -9999px;
     }
-
-    /*tr { border: 1px solid #ccc; }*/
-
     .mobile-vertical-table td { 
         /* Behave  like a "row" */
         border: none;
@@ -63,7 +36,6 @@ and open the template in the editor.
         position: relative;
         /*padding-left: 50%; */
     }
-
     .mobile-vertical-table td:before { 
         /* Now like a table header */
         position: absolute;
@@ -71,7 +43,29 @@ and open the template in the editor.
         top: 6px;
         left: 6px;
         width: 45%; 
-        padding-right: 10px; 
+        padding-right: 10px;
         white-space: nowrap;
+    }
+     
+    .registry-image {
+        max-width: 175px;
+        height: auto;
+    }
+        
+    #accommodations .table-head {
+        width: 250px;
+        height: auto;
+        text-align: center;
+    }
+    #accommodations table td {
+        text-align: center;
+        width: 250px;
+    }
+    
+    #airport-table td {
+        top: 6px;
+        left: 6px;
+        width: 45%; 
+        padding-right: 10px; 
     }
 } 

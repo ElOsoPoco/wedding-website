@@ -66,17 +66,16 @@ function partyDetails(){
 
         addPartyDetail(rsvpGuestDetailsTable, "Guest Name: ", "text", "guestName");        
         addRadioButton(rsvpGuestDetailsTable, "Entree: ", "entree", 
-            ["<img src='images/steak.png' alt='' class='food'> NY Strip Steak - gold potato puree, red wine and shallot compound butter, sauteed crimini mushroom and spinach ", 
-             "<img src='images/salmon.png' alt='' class='food'> Cedar Salmon - peas and carrots, roasted cauliflower wild rice, creme fraiche, dill ", 
-             "<img src='images/vegetarian.png' alt='' class='food'> Vegetarian - Chef's choice "],
+            ["<img src='images/steak.png' alt='' class='food'> NY Strip Steak <p class='mobile-none-display'> gold potato puree, red wine and shallot compound butter, sauteed crimini mushroom and spinach </p>", 
+             "<img src='images/salmon.png' alt='' class='food'> Cedar Salmon <p class='mobile-none-display'> peas and carrots, roasted cauliflower wild rice, creme fraiche, dill </p>", 
+             "<img src='images/vegetarian.png' alt='' class='food'> Vegetarian <p class='mobile-none-display'> Chef's choice </p>"],
             ["Steak", "Salmon", "Vegetarian"]);            
         addRadioButton(rsvpGuestDetailsTable, "Salad: ", "salad", 
-            ["<img src='images/heirloom.png' alt='' class='food'> Signature Heirloom (Spicy) - heirloom tomato, lemon cucumber, chile-cornbread croutons, parmesean cheese, and preserved meyer lemon vinaigrette  "
-            , "<img src='images/house-salad.png' alt='' class='food'> House - Oragnic greens with a champagne vinaigrette, shaved parmesan, and a seasonal garnishment "],
+            ["<img src='images/heirloom.png' alt='' class='food'> Signature Heirloom (Spicy) <p class='mobile-none-display'> heirloom tomato, lemon cucumber, chile-cornbread croutons, parmesean cheese, and preserved meyer lemon vinaigrette </p>"
+            , "<img src='images/house-salad.png' alt='' class='food'> House <p class='mobile-none-display'> Oragnic greens with a champagne vinaigrette, shaved parmesan, and a seasonal garnishment </p>"],
             ["Heirloom", "House"]);
         addRadioButton(rsvpGuestDetailsTable, "Over 21?: ", "over21", ["Yes: ", "No: "],
-            ["True", "False"]);
-        //addPartyDetail(rsvpGuestDetailsTable, "Age: ", "text", "age");
+            ["True", "False"]);        
         addTextArea(rsvpGuestDetailsTable, "Comments: ", 
             "rsvp-guest-details-form", "comments");
         
@@ -88,7 +87,8 @@ function partyDetails(){
     sendButtonDiv.innerHTML = "";
     
     sendButton = document.createElement("button");
-    sendButton.classList.add("hover-button");    
+    sendButton.classList.add("hover-button"); 
+    sendButton.classList.add("link-button");
     sendButton.innerHTML = "Send!";
     sendButton.onclick = sendRSVPRequest;    
     
@@ -102,13 +102,15 @@ function addPartyDetail(tableName, label, inputType, inputName){
     cell = row.insertCell(-1);
     guestName = document.createElement("p");    
     guestName.innerHTML = label;
-    guestName.style.textAlign = "left";
+    guestName.style.textAlign = "center";
     cell.appendChild(guestName);
 
     cell = row.insertCell(-1);
     guestNameInput = document.createElement("input");
+    guestNameInput.style.alignContent = "left";
     guestNameInput.type = inputType;
-    guestNameInput.name = inputName;    
+    guestNameInput.name = inputName;
+    guestNameInput.size = 12;    
     cell.appendChild(guestNameInput);
 }
 
@@ -131,8 +133,7 @@ function addRadioButton(tableName, label, radioButtonGroupName, html, values){
         
         row = tableName.insertRow(-1);
         
-        cell = row.insertCell(-1);
-        //blank = document.createElement("br");
+        cell = row.insertCell(-1);        
         cell.innerHTML = html[j];
         cell.classList.add("rsvp-detail-label");
         cell.appendChild(blank);
@@ -149,6 +150,7 @@ function addRadioButton(tableName, label, radioButtonGroupName, html, values){
 
 function addTextArea(table, label, form, id){
     row = table.insertRow(-1);
+    row.classList.add("mobile-none-display");
     
     cell = row.insertCell(-1);
     labelElement = document.createElement("p");
@@ -188,6 +190,8 @@ function isAttending(){
 
     document.getElementById("partyNumRow").innerHTML = "";
     sendButtonDiv.innerHTML = "";
+    
+    rsvpGuestDetails.innerHTML = "";
 
     addYouRow = document.getElementById("addYourself");
     addYouRow.innerHTML = "";
@@ -219,7 +223,8 @@ function isAttending(){
 
     } else {    
       sendButton = document.createElement("button");
-      sendButton.classList.add("hover-button");      
+      sendButton.classList.add("hover-button"); 
+      sendButton.classList.add("link-button");
       sendButton.innerHTML = "Send!";
       sendButton.onclick = sendRSVPRequest;
 
