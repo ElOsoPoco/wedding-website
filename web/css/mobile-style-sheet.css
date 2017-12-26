@@ -23,6 +23,7 @@ and open the template in the editor.
     .mobile-vertical-table table, .mobile-vertical-table thead, .mobile-vertical-table tbody, .mobile-vertical-table th, .mobile-vertical-table td, .mobile-vertical-table tr { 
         display: block;
     }
+    
     /* Hide table headers (but not display: none;, for accessibility) */
     .mobile-vertical-table thead tr { 
         position: absolute;

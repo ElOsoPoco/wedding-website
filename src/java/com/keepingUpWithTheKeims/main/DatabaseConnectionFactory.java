@@ -16,8 +16,9 @@ import java.util.logging.Logger;
  * @author oso1018
  */
 public class DatabaseConnectionFactory {
-    private final String dbURL = "jdbc:postgresql://ec2-54-163-53-202.compute-1.amazonaws.com:5432/wedding";
+    private DatabaseProperties databaseProperties;    
     private Connection connection;
+    private final String propertiesFile = "/Users/zackkeim/Documents/wedding-website/workspace/KeepingUpWithTheKeims/dbProperties.txt";
     
     public DatabaseConnectionFactory(){
         try {            
@@ -26,8 +27,10 @@ public class DatabaseConnectionFactory {
             Logger.getLogger(DatabaseConnectionFactory.class.getName()).log(Level.SEVERE, 
                     "Unable to find class for DB", ex);        
         }
-        try {             
-            connection = (Connection) DriverManager.getConnection(dbURL, "wedding_rw", "Zack101888");
+        try {
+            databaseProperties = new DatabaseProperties(propertiesFile);
+            connection = (Connection) DriverManager.getConnection(databaseProperties.getDbURL()
+                    , databaseProperties.getDbUser(), databaseProperties.getPassword());
             connection.setAutoCommit(false);
             Logger.getLogger(DatabaseConnectionFactory.class.getName()).log(Level.INFO,
                     "Opened database successfully");

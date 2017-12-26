@@ -64,9 +64,9 @@ public class RSVPEndpoint {
     @Path("/post_rsvp")
     @Consumes(MediaType.APPLICATION_JSON) 
     @Produces(MediaType.APPLICATION_JSON)
-    public ResponseObject postJsonTest(RequestObject requestObject){        
+    public ResponseObject postJson(RequestObject requestObject){        
         PartyTableQuery partyTableQuery = new PartyTableQuery(requestObject);
-        Logger.getLogger(DatabaseConnectionFactory.class.getName()).log(Level.INFO,
+        Logger.getLogger(RSVPEndpoint.class.getName()).log(Level.INFO,
                     "Received request object via post..."+requestObject.toJSONString());        
         
         partyTableQuery.upsertQuery();
