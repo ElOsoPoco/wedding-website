@@ -27,7 +27,7 @@ function sendRSVPRequest() {
         contentType: 'application/json',
         dataType: "json",
         data: JSON.stringify(view),        
-        url: 'http://zackandtiffany2018.com/KeepingUpWithTheKeims/webresources/rsvp/post_rsvp',
+        url: 'http://zackandtiffany2018.com/KeepingUpWithTheKeims/webresources/rsvp/post_rsvp',        
         // you will want to update success function to get specific
         // JSON data fields for output back to the original HTML page
         success: function(data) {
