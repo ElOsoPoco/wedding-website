@@ -19,6 +19,7 @@ public class DatabaseConnectionFactory {
     private DatabaseProperties databaseProperties;    
     private Connection connection;
     private final String propertiesFile = "/Users/zackkeim/Documents/wedding-website/workspace/KeepingUpWithTheKeims/dbProperties.txt";
+    //private final String propertiesFile = "/WEB-INF/dbProperties.txt";
     
     public DatabaseConnectionFactory(){
         try {            

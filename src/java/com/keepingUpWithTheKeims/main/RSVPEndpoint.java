@@ -39,7 +39,7 @@ public class RSVPEndpoint {
      * Retrieves representation of an instance of com.keepingUpWithTheKeims.main.RSVPEndpoint
      * @return an instance of java.lang.String
      */
-    @GET
+    @GET    
     @Produces(MediaType.APPLICATION_JSON)
     public String getJson() {
         //TODO return proper representation object
@@ -66,8 +66,7 @@ public class RSVPEndpoint {
     @Produces(MediaType.APPLICATION_JSON)
     public ResponseObject postJson(RequestObject requestObject){        
         PartyTableQuery partyTableQuery = new PartyTableQuery(requestObject);
-        Logger.getLogger(RSVPEndpoint.class.getName()).log(Level.INFO,
-                    "Received request object via post..."+requestObject.toJSONString());        
+        Logger.getLogger(RSVPEndpoint.class.getName()).log(Level.INFO, "Received request object via post...{0}", requestObject.toJSONString());        
         
         partyTableQuery.upsertQuery();
         for(Guest guest : requestObject.getGuests()){
@@ -76,7 +75,7 @@ public class RSVPEndpoint {
         }
                 
         return responseMessage(requestObject);
-    } 
+    }
     
     private ResponseObject responseMessage(RequestObject requestObject){
         ResponseObject response = new ResponseObject();
@@ -89,5 +88,5 @@ public class RSVPEndpoint {
             response.setResponse(thankYou);
         }
         return response;
-    }
+    }  
 }

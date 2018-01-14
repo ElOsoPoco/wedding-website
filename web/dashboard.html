@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>RSVP Dashboard</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/w3-wedding-style.css">
+        <link rel="stylesheet" href="css/desktop-style-sheet.css">
+        <link rel="stylesheet" href="css/mobile-style-sheet.css">
+        <link href='https://fonts.googleapis.com/css?family=Felipa' rel='stylesheet'>
+        <link rel="icon" href="images/red-heart.png">
+        <script src="javascript/wedding-dashboard.js" type="text/javascript"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> 
+        <style>
+            table {
+                margin-left: auto;
+                margin-right: auto;
+                border-collapse: collapse;
+            }
+            #dashboard-table th, td {
+                border-bottom: 1px solid #ddd;               
+            }
+            #dashboard-table tr:hover {
+                background-color: #f5f5f5;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="w3-padding-64" style="font-weight: bolder">
+            <h1 class="wedding-intro"> Tiffany's Super Awesome Custom Dashboard </h1>                              
+        </div>
+        <div id="dashboard">
+            <form id="Authentication">
+                <table>
+                    <tr>
+                        <td>User Name:</td>
+                        <td><input type="text" name="userName" size="20" maxlength="20" required></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input type="password" name="password" size="20" maxlength="20" required></td>
+                    </tr>
+                </table>
+                <button type="button" 
+                        onclick="getDashboard()">
+                    Submit
+                </button>
+            </form>
+        </div>
+    </body>
+</html>
