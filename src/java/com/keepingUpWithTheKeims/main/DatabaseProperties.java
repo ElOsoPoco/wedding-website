@@ -8,6 +8,7 @@ package com.keepingUpWithTheKeims.main;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,8 +23,7 @@ public class DatabaseProperties {
     
     public DatabaseProperties(String propertyFile){        
         String line;
-        try(FileReader fileReader = new FileReader(propertyFile);
-            BufferedReader bufferedReader = new BufferedReader(fileReader)){
+        try(BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.getClass().getClassLoader().getResourceAsStream(propertyFile)))){
             while((line = bufferedReader.readLine()) != null){
                 processLine(line);
             }
