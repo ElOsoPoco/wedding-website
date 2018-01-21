@@ -41,16 +41,14 @@ public class DatabaseProperties {
         String value = tokens[1];
         switch(key) {
             case "db_user": this.dbUser = value;
-                            Logger.getLogger(RSVPEndpoint.class.getName()).log(Level.INFO,
-                            "Read dbUser as: "+this.dbUser);
+                            Logger.getLogger(RSVPEndpoint.class.getName()).log(Level.INFO, "Read dbUser as: {0}", this.dbUser);
                             break;
             case "password": this.password = value;
                             Logger.getLogger(RSVPEndpoint.class.getName()).log(Level.INFO,
-                            "Read password as: "+this.password);
+                            "Read password as: *******");
                             break;
             case "db_url": this.dbURL = value;
-                            Logger.getLogger(RSVPEndpoint.class.getName()).log(Level.INFO,
-                            "Read dbURL as: "+this.dbURL);
+                            Logger.getLogger(RSVPEndpoint.class.getName()).log(Level.INFO, "Read dbURL as: {0}", this.dbURL);
                             break;            
         }
     }
